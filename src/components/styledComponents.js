@@ -26,13 +26,13 @@ export const SCLogin = styled.div`
     font-size: 2.3rem;
     margin: 0 0 4%;
   }
+`;
 
-  .login {
+export const SCLoginForm = styled.form`
     /* background-color: green; */
     display: flex;
     flex-direction: column;
     width: 50%;
-  }
 
   .campo {
     display: flex;
