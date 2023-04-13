@@ -122,9 +122,8 @@ export const SCLogin = styled.div`
     font-size: 1.1rem;
     margin: 5% auto 0;
   }
-
+  
   .esqueceu:hover {
-    color: blue;
     text-decoration: underline;
   }
 `;
