@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
 export const SCLogin = styled.div`
-  /* background-color: white; */
-  /* height: 50vh; */
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-radius: 20px; */
-  /* margin: 25% 0 0 0; */
 
   .container {
     background-color: skyblue;
@@ -24,7 +20,7 @@ export const SCLogin = styled.div`
 
   h1 {
     font-size: 2.3rem;
-    margin: 0 0 4%;
+    margin: 0 0 6%;
   }
 `;
 
