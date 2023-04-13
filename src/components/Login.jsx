@@ -36,12 +36,13 @@ export default function Login() {
               type="password"
               name="senha"
               placeholder="Insira sua senha"
+              minLength={8}
               required
             />
           </div>
 
           <div className="botoes">
-            <button>Entrar</button>
+            <button type="submit">Entrar</button>
             <button>Cadastrar-se</button>
           </div>
           <p className="esqueceu">Esqueceu sua senha?</p>
