@@ -82,6 +82,7 @@ export const SCLogin = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.2rem;
+    margin: 0 0 3%;
   }
 
   .campo label {
@@ -99,9 +100,8 @@ export const SCLogin = styled.div`
 
   .botoes {
     /* background-color: blueviolet; */
-    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin: 8% 0 0;
   }
 
