@@ -60,7 +60,7 @@ export const SCLogin = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2% 3% 1.4%;
+    padding: 2% 3%;
     margin: 9% 0 0;
     border-radius: 20px;
     border: 1px solid black;
