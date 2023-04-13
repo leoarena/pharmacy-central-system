@@ -11,51 +11,7 @@ export const SCLogin = styled.div`
   /* border-radius: 20px; */
   /* margin: 25% 0 0 0; */
 
-  nav {
-    background-color: skyblue;
-    width: 100vw;
-    /* height: 5%; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.5%;
-    font-size: 1.2rem;
-  }
-
-  .nav-left {
-    /* background-color: brown; */
-    display: flex;
-    align-items: center;
-    width: 50%;
-  }
-
-  nav .icon {
-    /* background-color: black; */
-    color: black;
-    padding: 0.2% 0.2% 0 0.21%;
-    margin: 0.2% 0;
-    /* border-radius: 5px; */
-    font-size: 2rem;
-  }
-
-  nav p {
-    margin: 0 1%;
-    font-weight: 600;
-  }
-
-  .nav-login {
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border-style: none;
-    padding: 5px;
-  }
-
-  .nav-login:hover {
-    background-color: black;
-    color: white;
-  }
-
-  .container{
+  .container {
     background-color: skyblue;
     display: flex;
     flex-direction: column;
@@ -65,12 +21,12 @@ export const SCLogin = styled.div`
     border-radius: 20px;
     border: 1px solid black;
   }
-  
+
   h1 {
     font-size: 2.3rem;
     margin: 0 0 4%;
   }
-  
+
   .login {
     /* background-color: green; */
     display: flex;
@@ -122,8 +78,52 @@ export const SCLogin = styled.div`
     font-size: 1.1rem;
     margin: 5% auto 0;
   }
-  
+
   .esqueceu:hover {
     text-decoration: underline;
+  }
+`;
+
+export const SCNav = styled.nav`
+  background-color: skyblue;
+  width: 100vw;
+  /* height: 5%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5%;
+  font-size: 1.2rem;
+
+  .nav-left {
+    /* background-color: brown; */
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  .icon {
+    /* background-color: black; */
+    color: black;
+    padding: 0.2% 0.2% 0 0.21%;
+    margin: 0.2% 0;
+    /* border-radius: 5px; */
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0 1%;
+    font-weight: 600;
+  }
+
+  .nav-login {
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+  }
+
+  .nav-login:hover {
+    background-color: black;
+    color: white;
   }
 `;

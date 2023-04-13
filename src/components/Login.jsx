@@ -1,20 +1,10 @@
 import { SCLogin } from "./styledComponents";
-import { FaClinicMedical } from "react-icons/fa";
+import Nav from "./Nav";
 
 export default function Login() {
   return (
     <SCLogin>
-      <nav>
-        <div className="nav-left">
-          <div className="icon">
-            <FaClinicMedical />
-          </div>
-          <p>Pharmacy Central System</p>
-        </div>
-        <div className="nav-right">
-          <button className="nav-login">Login</button>
-        </div>
-      </nav>
+      <Nav />
       <div className="container">
         <h1>Pharmacy Central System</h1>
         <form className="login">
