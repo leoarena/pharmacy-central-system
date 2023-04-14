@@ -87,11 +87,11 @@ export const SCNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0.5%;
   font-size: 1.2rem;
 
   .nav-left {
     /* background-color: brown; */
+    margin: 0 0.5%;
     display: flex;
     align-items: center;
     width: 50%;
@@ -109,6 +109,10 @@ export const SCNav = styled.nav`
   p {
     margin: 0 1%;
     font-weight: 600;
+  }
+
+  .nav-right {
+    margin: 0 0.5%;
   }
 
   .nav-login {
