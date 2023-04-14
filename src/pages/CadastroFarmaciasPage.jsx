@@ -6,7 +6,7 @@ export default function CadastroFarmaciasPage() {
   return (
     <SCCadastroFarmaciasPage>
       <Nav />
-      <h1>Cadastro de Nova Farmácia</h1>
+      <h1>Cadastro de nova Farmácia</h1>
       <CadastroFarmaciasForm />
     </SCCadastroFarmaciasPage>
   );
