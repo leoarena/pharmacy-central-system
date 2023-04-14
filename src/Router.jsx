@@ -16,6 +16,10 @@ export const appRouter = createBrowserRouter([
         path: "/farmacias",
         element: <FarmaciasPage />,
       },
+      {
+        path: "cadastro-farmacia",
+        element: <CadastroFarmacia />,
+      },
     ],
   },
 ]);
