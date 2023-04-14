@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SCLoginForm } from "./styledComponents";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
+  const validarLogin = (e) => {
+    e.preventDefault();
+    navigate("/farmacias");
+  };
+
   return (
-    <SCLoginForm>
+    <SCLoginForm onSubmit={(e) => validarLogin(e)}>
       <div className="campo">
         <label htmlFor="email">Email:</label>
         <input
@@ -26,9 +32,7 @@ export default function LoginForm() {
       </div>
 
       <div className="botoes">
-        <Link to='/farmacias'>
-          <button type="submit">Entrar</button>
-        </Link>
+        <button type="submit">Entrar</button>
         <button>Cadastrar-se</button>
       </div>
       <p className="esqueceu">Esqueceu sua senha?</p>
