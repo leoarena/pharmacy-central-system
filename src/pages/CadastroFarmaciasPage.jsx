@@ -1,6 +1,6 @@
-import CadastroFarmaciasForm from "./CadastroFarmaciasForm";
-import Nav from "./Nav";
-import { SCCadastroFarmaciasPage } from "./styledComponents";
+import CadastroFarmaciasForm from "../components/CadastroFarmaciasForm";
+import Nav from "../components/Nav";
+import { SCCadastroFarmaciasPage } from "../components/styledComponents";
 
 export default function CadastroFarmaciasPage() {
   return (

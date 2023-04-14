@@ -1,6 +1,6 @@
-import { SCLoginPage } from "./styledComponents";
-import Nav from "./Nav";
-import LoginForm from "./LoginForm";
+import { SCLoginPage } from "../components/styledComponents";
+import Nav from "../components/Nav";
+import LoginForm from "../components/LoginForm";
 
 export default function LoginPage() {
   return (

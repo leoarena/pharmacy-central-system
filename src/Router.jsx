@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import LoginPage from "./components/LoginPage";
-import FarmaciasPage from "./components/FarmaciasPage";
-import CadastroFarmaciasPage from "./components/CadastroFarmaciasPage";
-import MedicamentosPage from "./components/MedicamentosPage";
-import CadastroMedicamentosPage from "./components/CadastroMedicamentosPage";
+import LoginPage from "./pages/LoginPage";
+import FarmaciasPage from "./pages/FarmaciasPage";
+import CadastroFarmaciasPage from "./pages/CadastroFarmaciasPage";
+import MedicamentosPage from "./pages/MedicamentosPage";
+import CadastroMedicamentosPage from "./pages/CadastroMedicamentosPage";
 
 export const appRouter = createBrowserRouter([
   {

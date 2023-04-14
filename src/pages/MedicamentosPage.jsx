@@ -1,5 +1,5 @@
-import Nav from "./Nav";
-import { SCMedicamentosPage } from "./styledComponents";
+import Nav from "../components/Nav";
+import { SCMedicamentosPage } from "../components/styledComponents";
 import { Link } from "react-router-dom";
 
 export default function MedicamentosPage() {

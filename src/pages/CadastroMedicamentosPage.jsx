@@ -1,5 +1,5 @@
-import { SCCadastroMedicamentosPage } from "./styledComponents";
-import Nav from "./Nav";
+import { SCCadastroMedicamentosPage } from "../components/styledComponents";
+import Nav from "../components/Nav";
 
 export default function CadastroMedicamentosPage() {
   return (
