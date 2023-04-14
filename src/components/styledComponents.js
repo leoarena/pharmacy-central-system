@@ -134,20 +134,19 @@ export const SCNav = styled.nav`
   }
   
   .sair-button {
-    background-color: red;
+    background-color: gray;
     color: white;
     border: 1px solid black;
   }
   
+  .sair-button:hover {
+    background-color: red;
+  }
+
   .sair-button:active {
     background-color: black;
   }
-  
-  .sair-button:hover {
-    background-color: red;
-    text-decoration: underline;
-  }
-`;
+  `;
 
 export const SCFarmaciasPage = styled.div`
   height: 100vh;
