@@ -139,6 +139,10 @@ export const SCFarmaciasPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h1 {
+    margin: 3%;
+  }
 `;
 
 export const SCCadastroFarmaciasPage = styled.div`
