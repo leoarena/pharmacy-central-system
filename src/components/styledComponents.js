@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SCLogin = styled.div`
+export const SCLoginPage = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;

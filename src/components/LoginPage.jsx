@@ -1,15 +1,15 @@
-import { SCLogin } from "./styledComponents";
+import { SCLoginPage } from "./styledComponents";
 import Nav from "./Nav";
 import LoginForm from "./LoginForm";
 
-export default function Login() {
+export default function LoginPage() {
   return (
-    <SCLogin>
+    <SCLoginPage>
       <Nav />
       <div className="container">
         <h1>Pharmacy Central System</h1>
         <LoginForm />
       </div>
-    </SCLogin>
+    </SCLoginPage>
   );
 }
