@@ -120,14 +120,15 @@ export const SCNav = styled.nav`
     margin: 0 0.5vw 0 0;
   }
 
-  .nav-login {
+  .nav-button {
     font-size: 1.2rem;
     border-radius: 5px;
     border-style: none;
     padding: 5px;
+    margin: 0 0 0 0.5vw;
   }
 
-  .nav-login:hover {
+  .nav-button:hover {
     background-color: black;
     color: white;
   }

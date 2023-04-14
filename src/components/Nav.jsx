@@ -14,7 +14,15 @@ export default function Nav() {
         </div>
       </Link>
       <div className="nav-right">
-        <button className="nav-login">Login</button>
+        <Link to="/farmacias">
+          <button className="nav-button">Farmácias</button>
+        </Link>
+        <Link to="/medicamentos">
+          <button className="nav-button">Medicamentos</button>
+        </Link>
+        <Link to="/login">
+          <button className="nav-button">Login</button>
+        </Link>
       </div>
     </SCNav>
   );
