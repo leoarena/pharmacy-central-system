@@ -15,13 +15,13 @@ export default function Nav() {
       </Link>
       <div className="nav-right">
         <Link to="/farmacias">
-          <button className="nav-button">Farmácias</button>
+          <button className="nav-buttons">Farmácias</button>
         </Link>
         <Link to="/medicamentos">
-          <button className="nav-button">Medicamentos</button>
+          <button className="nav-buttons">Medicamentos</button>
         </Link>
         <Link to="/login">
-          <button className="nav-button">Login</button>
+          <button className="nav-buttons sair-button">Sair</button>
         </Link>
       </div>
     </SCNav>

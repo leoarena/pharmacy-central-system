@@ -120,17 +120,32 @@ export const SCNav = styled.nav`
     margin: 0 0.5vw 0 0;
   }
 
-  .nav-button {
+  .nav-buttons {
     font-size: 1.2rem;
     border-radius: 5px;
     border-style: none;
     padding: 5px;
     margin: 0 0 0 0.5vw;
   }
-
-  .nav-button:hover {
+  
+  .nav-buttons:hover {
     background-color: black;
     color: white;
+  }
+  
+  .sair-button {
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+  }
+  
+  .sair-button:active {
+    background-color: black;
+  }
+  
+  .sair-button:hover {
+    background-color: red;
+    text-decoration: underline;
   }
 `;
 
