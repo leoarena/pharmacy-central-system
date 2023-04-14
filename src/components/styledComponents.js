@@ -135,3 +135,47 @@ export const SCFarmaciasPage = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const SCCadastroFarmaciasPage = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin: 3%;
+  }
+`;
+
+export const SCCadastroFarmaciasForm = styled.form`
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 45vw;
+  height: 50vh;
+  /* padding: 1%; */
+
+  .item {
+    background-color: yellow;
+    width: 15vw;
+    /* margin: 0 1vw; */
+  }
+
+  .divider {
+    border: 1px solid black;
+  }
+
+  .botoes {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: blue;
+  }
+
+  button {
+    margin: 1%;
+  }
+`;

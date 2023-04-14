@@ -7,7 +7,7 @@ export default function FarmaciasPage() {
     <SCFarmaciasPage>
       <Nav />
       <h1>Listagem de Farmácias</h1>
-      <Link to='cadastro-farmacia'>
+      <Link to='/cadastro-farmacia'>
         <button>Cadastrar nova farmácia</button>
       </Link>
     </SCFarmaciasPage>
