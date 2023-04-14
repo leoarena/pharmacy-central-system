@@ -3,6 +3,8 @@ import App from "./App";
 import LoginPage from "./components/LoginPage";
 import FarmaciasPage from "./components/FarmaciasPage";
 import CadastroFarmaciasPage from "./components/CadastroFarmaciasPage";
+import MedicamentosPage from "./components/MedicamentosPage";
+import CadastroMedicamentosPage from "./components/CadastroMedicamentosPage";
 
 export const appRouter = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ export const appRouter = createBrowserRouter([
       {
         path: "/cadastro-farmacia",
         element: <CadastroFarmaciasPage />,
+      },
+      {
+        path: "/medicamentos",
+        element: <MedicamentosPage />,
+      },
+      {
+        path: "/cadastro-medicamento",
+        element: <CadastroMedicamentosPage />,
       },
     ],
   },
