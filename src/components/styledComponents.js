@@ -92,6 +92,7 @@ export const SCNav = styled.nav`
   .link {
     text-decoration: none;
     color: initial;
+    cursor: pointer;
   }
 
   .nav-left {
@@ -120,12 +121,17 @@ export const SCNav = styled.nav`
     margin: 0 0.5vw 0 0;
   }
 
+  .display-none {
+    display: none;
+  }
+
   .nav-buttons {
     font-size: 1.2rem;
     border-radius: 5px;
     border-style: none;
     padding: 5px;
     margin: 0 0 0 0.5vw;
+    cursor: pointer;
   }
   
   .nav-buttons:hover {
