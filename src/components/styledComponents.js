@@ -83,36 +83,41 @@ export const SCLoginForm = styled.form`
 export const SCNav = styled.nav`
   background-color: skyblue;
   width: 100vw;
-  /* height: 5%; */
+  height: 6vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1.2rem;
 
+  .link {
+    text-decoration: none;
+    color: initial;
+  }
+
   .nav-left {
     /* background-color: brown; */
-    margin: 0 0.5%;
     display: flex;
     align-items: center;
-    width: 50%;
+    width: 20vw;
+    margin: 0 0 0vw 0.5vw;
   }
 
   .icon {
-    /* background-color: black; */
+    /* background-color: yellowgreen; */
     color: black;
-    padding: 0.2% 0.2% 0 0.21%;
-    margin: 0.2% 0;
-    /* border-radius: 5px; */
+    display: flex;
     font-size: 2rem;
+    margin: 0 0.2vw 0.2vw 0;
   }
 
-  p {
+  span {
+    /* background-color: yellow; */
     margin: 0 1%;
     font-weight: 600;
   }
 
   .nav-right {
-    margin: 0 0.5%;
+    margin: 0 0.5vw 0 0;
   }
 
   .nav-login {
