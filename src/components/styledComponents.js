@@ -25,10 +25,10 @@ export const SCLoginPage = styled.div`
 `;
 
 export const SCLoginForm = styled.form`
-    /* background-color: green; */
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 
   .campo {
     display: flex;
@@ -122,4 +122,12 @@ export const SCNav = styled.nav`
     background-color: black;
     color: white;
   }
+`;
+
+export const SCFarmaciasPage = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
