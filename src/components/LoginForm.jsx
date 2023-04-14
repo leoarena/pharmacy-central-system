@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { SCLoginForm } from "./styledComponents";
 
 export default function LoginForm() {
@@ -25,7 +26,9 @@ export default function LoginForm() {
       </div>
 
       <div className="botoes">
-        <button type="submit">Entrar</button>
+        <Link to='/farmacias'>
+          <button type="submit">Entrar</button>
+        </Link>
         <button>Cadastrar-se</button>
       </div>
       <p className="esqueceu">Esqueceu sua senha?</p>
