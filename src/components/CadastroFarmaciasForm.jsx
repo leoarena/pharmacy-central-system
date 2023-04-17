@@ -17,8 +17,31 @@ export default function CadastroFarmaciasForm() {
   const [inputCidade, setInputCidade] = useState("");
   const [inputEstado, setInputEstado] = useState("");
 
+  const dadosFormulario = {
+    inputRazaoSocial,
+    inputCNPJ,
+    inputNomeFantasia,
+    inputEmail,
+    inputTelefone,
+    inputCelular,
+    inputCEP,
+    inputNumero,
+    inputComplemento,
+    inputLogradouro,
+    inputBairro,
+    inputCidade,
+    inputEstado,
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      localStorage.setItem("dadosFormulario", JSON.stringify(dadosFormulario));
+      alert("Empresa cadastrada com sucesso!");
+      console.log("formulário submetido");
+    } catch (error) {
+      console.log("erro ao submeter formulário:", error);
+    }
   };
 
   useEffect(() => {
@@ -62,7 +85,7 @@ export default function CadastroFarmaciasForm() {
         <label htmlFor="razao-social">Razão Social:</label>
         <input
           type="text"
-          name="razao-social"
+          name="razaoSocial"
           id="razao-social"
           required
           value={inputRazaoSocial}
@@ -86,7 +109,7 @@ export default function CadastroFarmaciasForm() {
         <label htmlFor="nome-fantasia">Nome Fantasia:</label>
         <input
           type="text"
-          name="nome-fantasia"
+          name="nomeFantasia"
           id="nome-fantasia"
           required
           value={inputNomeFantasia}
