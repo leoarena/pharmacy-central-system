@@ -15,6 +15,7 @@ export default function LoginForm() {
         <input
           type="email"
           name="email"
+          id="email"
           placeholder="Insira seu email"
           required
         />
@@ -25,6 +26,7 @@ export default function LoginForm() {
         <input
           type="password"
           name="senha"
+          id="senha"
           placeholder="Insira sua senha"
           minLength={8}
           required
@@ -33,7 +35,7 @@ export default function LoginForm() {
 
       <div className="botoes">
         <button type="submit">Entrar</button>
-        <button>Cadastrar-se</button>
+        <button type="button">Cadastrar-se</button>
       </div>
       <p className="esqueceu">Esqueceu sua senha?</p>
     </SCLoginForm>
