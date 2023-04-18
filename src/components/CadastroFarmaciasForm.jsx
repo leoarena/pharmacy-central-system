@@ -11,13 +11,19 @@ export default function CadastroFarmaciasForm() {
   const [inputCEP, setInputCEP] = useState("");
   const [inputNumero, setInputNumero] = useState("");
   const [inputComplemento, setInputComplemento] = useState("");
-
   const [inputLogradouro, setInputLogradouro] = useState("");
   const [inputBairro, setInputBairro] = useState("");
   const [inputCidade, setInputCidade] = useState("");
   const [inputEstado, setInputEstado] = useState("");
 
-  const dadosFormulario = {
+  const [dadosEmpresas, setDadosEmpresas] = useState([]);
+
+  useEffect(() => {
+    const dadosLocalStorage = localStorage.getItem("dadosEmpresas");
+    if (dadosLocalStorage) setDadosEmpresas(JSON.parse(dadosLocalStorage));
+  }, []);
+
+  const dadosNovaEmpresa = {
     inputRazaoSocial,
     inputCNPJ,
     inputNomeFantasia,
@@ -36,7 +42,9 @@ export default function CadastroFarmaciasForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      localStorage.setItem("dadosFormulario", JSON.stringify(dadosFormulario));
+      const dadosAtualizados = [...dadosEmpresas, dadosNovaEmpresa];
+      setDadosEmpresas(dadosAtualizados);
+      localStorage.setItem("dadosEmpresas", JSON.stringify(dadosAtualizados));
       alert("Empresa cadastrada com sucesso!");
       console.log("formulário submetido");
     } catch (error) {
