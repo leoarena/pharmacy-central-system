@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
-import { FaBriefcaseMedical } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
 
 export default function MedicamentosCard({ dadosFormulario }) {
   return (
@@ -12,7 +13,7 @@ export default function MedicamentosCard({ dadosFormulario }) {
             style={{ width: "15vw" }}
           >
             <div className="d-flex justify-content-center m-1 mt-4 fs-1">
-              <FaBriefcaseMedical />
+              <FontAwesomeIcon icon={faBriefcaseMedical} />
             </div>
             <Card.Body>
               <Card.Title>
