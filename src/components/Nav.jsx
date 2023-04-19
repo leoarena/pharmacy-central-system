@@ -22,23 +22,12 @@ export default function Nav() {
 
   return (
     <SCNav>
-      {link ? (
-        <Link to="/farmacias" className="link">
-          <div className="nav-left">
-            <div className="icon">
-              <FontAwesomeIcon icon={faLaptopMedical} />
-            </div>
-            <span>Pharmacy Central System</span>
-          </div>
-        </Link>
-      ) : (
-        <div className="nav-left">
-          <div className="icon">
-            <FontAwesomeIcon icon={faLaptopMedical} />
-          </div>
-          <span>Pharmacy Central System</span>
+      <div className="nav-left">
+        <div className="icon">
+          <FontAwesomeIcon icon={faLaptopMedical} />
         </div>
-      )}
+        <span>Pharmacy Central System</span>
+      </div>
 
       <div className={navRightLogin}>
         <span>Login</span>
