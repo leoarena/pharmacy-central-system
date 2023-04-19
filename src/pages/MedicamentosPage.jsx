@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import { SCMedicamentosPage } from "../components/styledComponents";
 import { Link } from "react-router-dom";
 import MedicamentosTable from "../components/MedicamentosTable";
+import { Button } from "react-bootstrap";
 
 export default function MedicamentosPage() {
   const [dadosFormulario, setDadosFormulario] = useState({});
@@ -20,7 +21,7 @@ export default function MedicamentosPage() {
       <h1>Listagem de Medicamentos</h1>
       <MedicamentosTable dadosFormulario={dadosFormulario} />
       <Link to="/cadastro-medicamento">
-        <button>Cadastrar novo medicamento</button>
+        <Button>Cadastrar novo medicamento</Button>
       </Link>
     </SCMedicamentosPage>
   );

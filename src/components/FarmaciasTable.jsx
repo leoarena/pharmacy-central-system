@@ -1,6 +1,8 @@
+import { Table } from "react-bootstrap";
+
 export default function FarmaciasTable({ dadosFormulario }) {
   return (
-    <table>
+    <Table>
       <thead>
         <tr>
           <th>Razão Social</th>
@@ -39,6 +41,6 @@ export default function FarmaciasTable({ dadosFormulario }) {
           );
         })}
       </tbody>
-    </table>
+    </Table>
   );
 }

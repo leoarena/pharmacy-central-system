@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import { Link } from "react-router-dom";
 import FarmaciasTable from "../components/FarmaciasTable";
 import { useEffect, useState } from "react";
+import { Button, Navbar } from "react-bootstrap";
 
 export default function FarmaciasPage() {
   const [dadosFormulario, setDadosFormulario] = useState({});
@@ -18,7 +19,7 @@ export default function FarmaciasPage() {
       <h1>Listagem de Farmácias</h1>
       <FarmaciasTable dadosFormulario={dadosFormulario} />
       <Link to="/cadastro-farmacia">
-        <button>Cadastrar nova farmácia</button>
+        <Button>Cadastrar nova farmácia</Button>
       </Link>
     </SCFarmaciasPage>
   );

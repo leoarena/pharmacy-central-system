@@ -1,6 +1,8 @@
+import { Table } from "react-bootstrap";
+
 export default function MedicamentosTable({ dadosFormulario }) {
   return (
-    <table>
+    <Table>
       <thead>
         <tr>
           <th>Medicamento</th>
@@ -25,6 +27,6 @@ export default function MedicamentosTable({ dadosFormulario }) {
           );
         })}
       </tbody>
-    </table>
+    </Table>
   );
 }
