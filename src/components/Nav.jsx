@@ -13,7 +13,7 @@ export default function Nav() {
   const currentLocation = location.pathname;
 
   useEffect(() => {
-    if (currentLocation === "/login") {
+    if (currentLocation === "/") {
       setnavRightButtons("display-none");
       setNavRightLogin("nav-right");
       setLink(false);
