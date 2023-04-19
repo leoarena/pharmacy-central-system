@@ -99,7 +99,7 @@ export const SCNav = styled.nav`
     /* background-color: brown; */
     display: flex;
     align-items: center;
-    width: 20vw;
+    width: 25vw;
     margin: 0 0 0vw 0.5vw;
   }
 
