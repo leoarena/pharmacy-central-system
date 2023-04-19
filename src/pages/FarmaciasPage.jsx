@@ -10,6 +10,7 @@ export default function FarmaciasPage() {
   const [visualizacao, setVisualizacao] = useState("mapa");
 
   useEffect(() => {
+    document.title = "Farmácias";
     const dadosLocalStorage = JSON.parse(localStorage.getItem("dadosEmpresas"));
     if (dadosLocalStorage) setDadosFormulario(dadosLocalStorage);
   }, []);

@@ -11,7 +11,7 @@ export default function MedicamentosPage() {
   const [visualizacao, setVisualizacao] = useState("card");
 
   useEffect(() => {
-    document.title = "Farmácias";
+    document.title = "Medicamentos";
     const dadosLocalStorage = JSON.parse(
       localStorage.getItem("dadosMedicamentos")
     );
