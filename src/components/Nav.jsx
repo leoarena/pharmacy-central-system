@@ -2,21 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
 import { SCNav } from "./styledComponents";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 export default function Nav() {
-  const [navRightButtons, setnavRightButtons] = useState("nav-right");
-  const [navRightLogin, setNavRightLogin] = useState("display-none");
-
   const location = useLocation();
   const currentLocation = location.pathname;
-
-  useEffect(() => {
-    if (currentLocation === "/") {
-      setnavRightButtons("display-none");
-      setNavRightLogin("nav-right");
-    }
-  }, []);
 
   return (
     <SCNav>
@@ -26,21 +15,23 @@ export default function Nav() {
         </div>
         <span>Pharmacy Central System</span>
       </div>
-
-      <div className={navRightLogin}>
-        <span>Login</span>
-      </div>
-      <div className={navRightButtons}>
-        <Link to="/farmacias">
-          <button className="nav-buttons">Farmácias</button>
-        </Link>
-        <Link to="/medicamentos">
-          <button className="nav-buttons">Medicamentos</button>
-        </Link>
-        <Link to="/">
-          <button className="nav-buttons sair-button">Sair</button>
-        </Link>
-      </div>
+      {currentLocation === "/" ? (
+        <div className="nav-right">
+          <span>Login</span>
+        </div>
+      ) : (
+        <div className="nav-right">
+          <Link to="/farmacias">
+            <button className="nav-buttons">Farmácias</button>
+          </Link>
+          <Link to="/medicamentos">
+            <button className="nav-buttons">Medicamentos</button>
+          </Link>
+          <Link to="/">
+            <button className="nav-buttons sair-button">Sair</button>
+          </Link>
+        </div>
+      )}
     </SCNav>
   );
 }
