@@ -1,4 +1,5 @@
-import { FaClinicMedical } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
 import { SCNav } from "./styledComponents";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -25,7 +26,7 @@ export default function Nav() {
         <Link to="/farmacias" className="link">
           <div className="nav-left">
             <div className="icon">
-              <FaClinicMedical />
+              <FontAwesomeIcon icon={faLaptopMedical} />
             </div>
             <span>Pharmacy Central System</span>
           </div>
@@ -33,7 +34,7 @@ export default function Nav() {
       ) : (
         <div className="nav-left">
           <div className="icon">
-            <FaClinicMedical />
+            <FontAwesomeIcon icon={faLaptopMedical} />
           </div>
           <span>Pharmacy Central System</span>
         </div>
