@@ -2,7 +2,7 @@ import { Table } from "react-bootstrap";
 
 export default function FarmaciasTable({ dadosFormulario }) {
   return (
-    <Table>
+    <Table className="my-4">
       <thead>
         <tr>
           <th>Razão Social</th>
