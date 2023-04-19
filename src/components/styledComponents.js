@@ -133,18 +133,18 @@ export const SCNav = styled.nav`
     margin: 0 0 0 0.5vw;
     cursor: pointer;
   }
-  
+
   .nav-buttons:hover {
     background-color: black;
     color: white;
   }
-  
+
   .sair-button {
     background-color: gray;
     color: white;
     border: 1px solid black;
   }
-  
+
   .sair-button:hover {
     background-color: red;
   }
@@ -152,7 +152,7 @@ export const SCNav = styled.nav`
   .sair-button:active {
     background-color: black;
   }
-  `;
+`;
 
 export const SCFarmaciasPage = styled.div`
   height: 100vh;
@@ -264,4 +264,8 @@ export const SCCadastroMedicamentosForm = styled.form`
   button {
     margin: 1%;
   }
+`;
+
+export const H1 = styled.h1`
+  margin: 5vh 0;
 `;

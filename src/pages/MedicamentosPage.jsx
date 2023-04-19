@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import MedicamentosTable from "../components/MedicamentosTable";
 import { Button, Container } from "react-bootstrap";
 import MedicamentosCard from "../components/MedicamentosCard";
+import { H1 } from "../components/styledComponents";
 
 export default function MedicamentosPage() {
   const [dadosFormulario, setDadosFormulario] = useState({});
@@ -23,7 +24,7 @@ export default function MedicamentosPage() {
     <>
       <Nav />
       <Container className="d-flex flex-column align-items-center">
-        <h1>Listagem de Medicamentos</h1>
+        <H1>Listagem de Medicamentos</H1>
         <Button onClick={alterarVisualizacao}>
           {visualizacao === "lista"
             ? "Visualizar como card"
