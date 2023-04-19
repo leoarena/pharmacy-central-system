@@ -50,7 +50,7 @@ export default function Nav() {
         <Link to="/medicamentos">
           <button className="nav-buttons">Medicamentos</button>
         </Link>
-        <Link to="/login">
+        <Link to="/">
           <button className="nav-buttons sair-button">Sair</button>
         </Link>
       </div>
