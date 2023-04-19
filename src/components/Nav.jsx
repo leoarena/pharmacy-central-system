@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export default function Nav() {
   const [navRightButtons, setnavRightButtons] = useState("nav-right");
   const [navRightLogin, setNavRightLogin] = useState("display-none");
-  const [link, setLink] = useState(true);
 
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -16,7 +15,6 @@ export default function Nav() {
     if (currentLocation === "/") {
       setnavRightButtons("display-none");
       setNavRightLogin("nav-right");
-      setLink(false);
     }
   }, []);
 
