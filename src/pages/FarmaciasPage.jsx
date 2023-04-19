@@ -4,6 +4,7 @@ import FarmaciasTable from "../components/FarmaciasTable";
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { H1 } from "../components/styledComponents";
+import FarmaciasMap from "../components/FarmaciasMap";
 
 export default function FarmaciasPage() {
   const [dadosFormulario, setDadosFormulario] = useState({});
@@ -34,7 +35,7 @@ export default function FarmaciasPage() {
           </Link>
         </div>
         {visualizacao === "mapa" ? (
-          <p>exibir mapa</p>
+          <FarmaciasMap />
         ) : (
           <FarmaciasTable dadosFormulario={dadosFormulario} />
         )}
