@@ -1,10 +1,10 @@
-import { useState } from "react";
 import CadastroFarmaciasForm from "../components/CadastroFarmaciasForm";
 import Nav from "../components/Nav";
 import { SCCadastroFarmaciasPage } from "../components/styledComponents";
+import { useEffect } from "react";
 
 export default function CadastroFarmaciasPage() {
-  useState(() => {
+  useEffect(() => {
     document.title = "Cadastro de Farmácias";
   }, []);
 
