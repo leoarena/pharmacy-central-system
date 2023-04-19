@@ -1,7 +1,7 @@
-import { SCCadastroMedicamentosPage } from "../components/styledComponents";
-import Nav from "../components/Nav";
+import { H1 } from "../components/styledComponents";
 import CadastroMedicamentosForm from "../components/CadastroMedicamentosForm";
 import { useEffect } from "react";
+import { Container } from "react-bootstrap";
 
 export default function CadastroMedicamentosPage() {
   useEffect(() => {
@@ -9,10 +9,9 @@ export default function CadastroMedicamentosPage() {
   }, []);
 
   return (
-    <SCCadastroMedicamentosPage>
-      <Nav />
-      <h1>Cadastro de novo Medicamento</h1>
+    <Container className="d-flex flex-column align-items-center">
+      <H1>Cadastro de novo Medicamento</H1>
       <CadastroMedicamentosForm />
-    </SCCadastroMedicamentosPage>
+    </Container>
   );
 }

@@ -1,6 +1,6 @@
+import { Container } from "react-bootstrap";
 import CadastroFarmaciasForm from "../components/CadastroFarmaciasForm";
-import Nav from "../components/Nav";
-import { SCCadastroFarmaciasPage } from "../components/styledComponents";
+import { H1 } from "../components/styledComponents";
 import { useEffect } from "react";
 
 export default function CadastroFarmaciasPage() {
@@ -9,10 +9,9 @@ export default function CadastroFarmaciasPage() {
   }, []);
 
   return (
-    <SCCadastroFarmaciasPage>
-      <Nav />
-      <h1>Cadastro de nova Farmácia</h1>
+    <Container className="d-flex flex-column align-items-center">
+      <H1>Cadastro de nova Farmácia</H1>
       <CadastroFarmaciasForm />
-    </SCCadastroFarmaciasPage>
+    </Container>
   );
 }

@@ -1,4 +1,3 @@
-import Nav from "../components/Nav";
 import { Link } from "react-router-dom";
 import FarmaciasTable from "../components/FarmaciasTable";
 import { useEffect, useState } from "react";
@@ -20,26 +19,23 @@ export default function FarmaciasPage() {
     setVisualizacao(visualizacao === "mapa" ? "tabela" : "mapa");
 
   return (
-    <>
-      <Nav />
-      <Container className="d-flex flex-column align-items-center">
-        <H1>Listagem de Farmácias</H1>
-        <div>
-          <Button onClick={alterarVisualizacao} className="m-1">
-            {visualizacao === "mapa"
-              ? "Visualizar como tabela"
-              : "Visualizar como mapa"}
-          </Button>
-          <Link to="/cadastro-farmacia">
-            <Button className="m-1">Cadastrar nova farmácia</Button>
-          </Link>
-        </div>
-        {visualizacao === "mapa" ? (
-          <FarmaciasMap />
-        ) : (
-          <FarmaciasTable dadosFormulario={dadosFormulario} />
-        )}
-      </Container>
-    </>
+    <Container className="d-flex flex-column align-items-center">
+      <H1>Listagem de Farmácias</H1>
+      <div>
+        <Button onClick={alterarVisualizacao} className="m-1">
+          {visualizacao === "mapa"
+            ? "Visualizar como tabela"
+            : "Visualizar como mapa"}
+        </Button>
+        <Link to="/cadastro-farmacia">
+          <Button className="m-1">Cadastrar nova farmácia</Button>
+        </Link>
+      </div>
+      {visualizacao === "mapa" ? (
+        <FarmaciasMap />
+      ) : (
+        <FarmaciasTable dadosFormulario={dadosFormulario} />
+      )}
+    </Container>
   );
 }
