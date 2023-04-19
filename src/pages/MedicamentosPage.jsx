@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Nav from "../components/Nav";
-import { SCMedicamentosPage } from "../components/styledComponents";
 import { Link } from "react-router-dom";
 import MedicamentosTable from "../components/MedicamentosTable";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 export default function MedicamentosPage() {
   const [dadosFormulario, setDadosFormulario] = useState({});
+  const [visualizacao, setVisualizacao] = useState("lista");
 
   useEffect(() => {
     const dadosLocalStorage = JSON.parse(
@@ -15,14 +15,28 @@ export default function MedicamentosPage() {
     if (dadosLocalStorage) setDadosFormulario(dadosLocalStorage);
   }, []);
 
+  const alterarVisualizacao = () =>
+    setVisualizacao(visualizacao === "lista" ? "card" : "lista");
+
   return (
-    <SCMedicamentosPage>
+    <>
       <Nav />
-      <h1>Listagem de Medicamentos</h1>
-      <MedicamentosTable dadosFormulario={dadosFormulario} />
-      <Link to="/cadastro-medicamento">
-        <Button>Cadastrar novo medicamento</Button>
-      </Link>
-    </SCMedicamentosPage>
+      <Container className="d-flex flex-column align-items-center">
+        <h1>Listagem de Medicamentos</h1>
+        <Button onClick={alterarVisualizacao}>
+          {visualizacao === "lista"
+            ? "Visualizar como card"
+            : "Visualizar como lista"}
+        </Button>
+        {visualizacao === "lista" ? (
+          <MedicamentosTable dadosFormulario={dadosFormulario} />
+        ) : (
+          <p>Card</p>
+        )}
+        <Link to="/cadastro-medicamento">
+          <Button>Cadastrar novo medicamento</Button>
+        </Link>
+      </Container>
+    </>
   );
 }
