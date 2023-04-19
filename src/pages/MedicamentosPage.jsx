@@ -18,7 +18,7 @@ export default function MedicamentosPage() {
   }, []);
 
   const alterarVisualizacao = () =>
-    setVisualizacao(visualizacao === "lista" ? "card" : "lista");
+    setVisualizacao(visualizacao === "tabela" ? "card" : "tabela");
 
   return (
     <>
@@ -27,15 +27,15 @@ export default function MedicamentosPage() {
         <H1>Listagem de Medicamentos</H1>
         <div>
           <Button onClick={alterarVisualizacao} className="m-1">
-            {visualizacao === "lista"
+            {visualizacao === "tabela"
               ? "Visualizar como card"
-              : "Visualizar como lista"}
+              : "Visualizar como tabela"}
           </Button>
           <Link to="/cadastro-medicamento">
             <Button className="m-1">Cadastrar novo medicamento</Button>
           </Link>
         </div>
-        {visualizacao === "lista" ? (
+        {visualizacao === "tabela" ? (
           <MedicamentosTable dadosFormulario={dadosFormulario} />
         ) : (
           <MedicamentosCard dadosFormulario={dadosFormulario} />
