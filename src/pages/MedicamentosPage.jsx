@@ -3,10 +3,11 @@ import Nav from "../components/Nav";
 import { Link } from "react-router-dom";
 import MedicamentosTable from "../components/MedicamentosTable";
 import { Button, Container } from "react-bootstrap";
+import MedicamentosCard from "../components/MedicamentosCard";
 
 export default function MedicamentosPage() {
   const [dadosFormulario, setDadosFormulario] = useState({});
-  const [visualizacao, setVisualizacao] = useState("lista");
+  const [visualizacao, setVisualizacao] = useState("card");
 
   useEffect(() => {
     const dadosLocalStorage = JSON.parse(
@@ -31,7 +32,7 @@ export default function MedicamentosPage() {
         {visualizacao === "lista" ? (
           <MedicamentosTable dadosFormulario={dadosFormulario} />
         ) : (
-          <p>Card</p>
+          <MedicamentosCard dadosFormulario={dadosFormulario} />
         )}
         <Link to="/cadastro-medicamento">
           <Button>Cadastrar novo medicamento</Button>
