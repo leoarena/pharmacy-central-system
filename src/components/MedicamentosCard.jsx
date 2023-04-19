@@ -3,7 +3,7 @@ import { FaBriefcaseMedical } from "react-icons/fa";
 
 export default function MedicamentosCard({ dadosFormulario }) {
   return (
-    <div className="d-flex flex-wrap justify-content-between">
+    <div className="d-flex flex-wrap justify-content-between my-4">
       {Object.keys(dadosFormulario).map((indexMedicamento) => {
         return (
           <Card

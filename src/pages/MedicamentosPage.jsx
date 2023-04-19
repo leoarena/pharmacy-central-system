@@ -25,19 +25,21 @@ export default function MedicamentosPage() {
       <Nav />
       <Container className="d-flex flex-column align-items-center">
         <H1>Listagem de Medicamentos</H1>
-        <Button onClick={alterarVisualizacao}>
-          {visualizacao === "lista"
-            ? "Visualizar como card"
-            : "Visualizar como lista"}
-        </Button>
+        <div>
+          <Button onClick={alterarVisualizacao} className="m-1">
+            {visualizacao === "lista"
+              ? "Visualizar como card"
+              : "Visualizar como lista"}
+          </Button>
+          <Link to="/cadastro-medicamento">
+            <Button className="m-1">Cadastrar novo medicamento</Button>
+          </Link>
+        </div>
         {visualizacao === "lista" ? (
           <MedicamentosTable dadosFormulario={dadosFormulario} />
         ) : (
           <MedicamentosCard dadosFormulario={dadosFormulario} />
         )}
-        <Link to="/cadastro-medicamento">
-          <Button>Cadastrar novo medicamento</Button>
-        </Link>
       </Container>
     </>
   );
