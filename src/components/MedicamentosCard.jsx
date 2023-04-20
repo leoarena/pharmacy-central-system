@@ -37,9 +37,7 @@ export default function MedicamentosCard({ dadosFormulario }) {
                   onHide={() => setMedicamentoSelecionado(null)}
                 >
                   <Modal.Header closeButton>
-                    <Modal.Title>
-                      Medicamento: {medicamento.inputMedicamento}
-                    </Modal.Title>
+                    <Modal.Title>Informações completas</Modal.Title>
                   </Modal.Header>
                   <Modal.Body className="d-flex justify-content-between">
                     <div className="flex-grow-1 d-flex justify-content-center align-items-center">
@@ -49,6 +47,9 @@ export default function MedicamentosCard({ dadosFormulario }) {
                       />
                     </div>
                     <ListGroup>
+                      <ListGroupItem>
+                        Medicamento: {medicamento.inputMedicamento}
+                      </ListGroupItem>
                       <ListGroupItem>
                         Laboratório: {medicamento.inputLaboratorio}
                       </ListGroupItem>
