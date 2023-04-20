@@ -10,7 +10,7 @@ export default function LoginPage() {
 
   return (
     <Container className="d-flex flex-column align-items-center">
-      <H1 className="mb-5">Pharmacy Central System</H1>
+      <H1 className="mt-5 pt-5">Login</H1>
       <LoginForm />
     </Container>
   );

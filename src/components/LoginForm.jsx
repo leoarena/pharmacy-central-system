@@ -9,7 +9,7 @@ export default function LoginForm() {
   };
 
   return (
-    <Form onSubmit={validarLogin} className="mt-5">
+    <Form onSubmit={validarLogin} className="mt-4">
       <Form.Group>
         <Form.Label htmlFor="email">Email:</Form.Label>
         <Form.Control
