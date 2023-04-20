@@ -59,9 +59,11 @@ export default function FarmaciasTable({ dadosFormulario }) {
                         Nome Fantasia: {empresa.inputNomeFantasia}
                       </ListGroupItem>
                       <ListGroupItem>Email: {empresa.inputEmail}</ListGroupItem>
-                      <ListGroupItem>
-                        Telefone: {empresa.inputTelefone}
-                      </ListGroupItem>
+                      {empresa.inputTelefone !== "" && (
+                        <ListGroupItem>
+                          Telefone: {empresa.inputTelefone}
+                        </ListGroupItem>
+                      )}
                       <ListGroupItem>
                         Celular: {empresa.inputCelular}
                       </ListGroupItem>
@@ -81,6 +83,11 @@ export default function FarmaciasTable({ dadosFormulario }) {
                       <ListGroupItem>
                         Estado: {empresa.inputEstado}
                       </ListGroupItem>
+                      {empresa.inputComplemento !== "" && (
+                        <ListGroupItem>
+                          Complemento: {empresa.inputComplemento}
+                        </ListGroupItem>
+                      )}
                     </ListGroup>
                   </Modal.Body>
                   <Modal.Footer>
