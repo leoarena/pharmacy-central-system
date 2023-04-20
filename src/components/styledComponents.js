@@ -83,7 +83,7 @@ export const SCLoginForm = styled.form`
 export const SCNav = styled.nav`
   background-color: skyblue;
   width: 100vw;
-  height: 6vh;
+  height: 7vh;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
 import { SCNav } from "./styledComponents";
 import { Link, useLocation } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export default function Nav() {
   const location = useLocation();
@@ -22,13 +23,13 @@ export default function Nav() {
       ) : (
         <div className="nav-right">
           <Link to="/farmacias">
-            <button className="nav-buttons">Farmácias</button>
+            <Button className="nav-buttons">Farmácias</Button>
           </Link>
           <Link to="/medicamentos">
-            <button className="nav-buttons">Medicamentos</button>
+            <Button className="nav-buttons">Medicamentos</Button>
           </Link>
           <Link to="/">
-            <button className="nav-buttons sair-button">Sair</button>
+            <Button className="nav-buttons sair-button">Sair</Button>
           </Link>
         </div>
       )}
