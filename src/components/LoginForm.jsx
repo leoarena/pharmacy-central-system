@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { SCLoginForm } from "./styledComponents";
+import { Button, Form } from "react-bootstrap";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -9,21 +9,21 @@ export default function LoginForm() {
   };
 
   return (
-    <SCLoginForm onSubmit={validarLogin}>
-      <div className="campo">
-        <label htmlFor="email">Email:</label>
-        <input
+    <Form onSubmit={validarLogin} className="mt-5">
+      <Form.Group>
+        <Form.Label htmlFor="email">Email:</Form.Label>
+        <Form.Control
           type="email"
           name="email"
           id="email"
           placeholder="Insira seu email"
           required
         />
-      </div>
+      </Form.Group>
 
-      <div className="campo">
-        <label htmlFor="senha">Senha:</label>
-        <input
+      <Form.Group className="mt-2">
+        <Form.Label htmlFor="senha">Senha:</Form.Label>
+        <Form.Control
           type="password"
           name="senha"
           id="senha"
@@ -31,13 +31,25 @@ export default function LoginForm() {
           minLength={8}
           required
         />
-      </div>
+      </Form.Group>
 
-      <div className="botoes">
-        <button type="submit">Entrar</button>
-        <button type="button">Cadastrar-se</button>
+      <div className="mt-4 d-flex justify-content-center">
+        <Button type="submit" className="mx-1">
+          Entrar
+        </Button>
+        <Button
+          type="button"
+          className="mx-1"
+          onClick={() => navigate("/cadastre-se")}
+        >
+          Cadastrar-se
+        </Button>
       </div>
-      <p className="esqueceu">Esqueceu sua senha?</p>
-    </SCLoginForm>
+      <div className="text-center mt-2 ">
+        <a href="/recuperar" className="text-decoration-none">
+          Esqueceu sua senha?
+        </a>
+      </div>
+    </Form>
   );
 }
