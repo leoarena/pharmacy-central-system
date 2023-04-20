@@ -9,11 +9,9 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <>
-      <Container className="d-flex flex-column align-items-center">
-        <H1>Pharmacy Central System</H1>
-        <LoginForm />
-      </Container>
-    </>
+    <Container className="d-flex flex-column align-items-center">
+      <H1>Pharmacy Central System</H1>
+      <LoginForm />
+    </Container>
   );
 }
