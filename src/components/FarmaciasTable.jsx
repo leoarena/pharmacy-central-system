@@ -1,6 +1,19 @@
-import { Table } from "react-bootstrap";
+import { useState } from "react";
+import {
+  Button,
+  ListGroup,
+  ListGroupItem,
+  Modal,
+  Table,
+} from "react-bootstrap";
 
 export default function FarmaciasTable({ dadosFormulario }) {
+  const [empresaSelecionada, setEmpresaSelecionada] = useState(null);
+
+  const botaoModal = (indexEmpresa) => {
+    setEmpresaSelecionada(indexEmpresa);
+  };
+
   return (
     <Table className="my-4">
       <thead>
@@ -11,32 +24,79 @@ export default function FarmaciasTable({ dadosFormulario }) {
           <th>Email</th>
           <th>Telefone</th>
           <th>Celular</th>
-          {/* <th>CEP</th>
-          <th>Logradouro</th>
-          <th>Número</th>
-          <th>Bairro</th>
-          <th>Cidade</th>
-          <th>Estado</th>
-          <th>Complemento</th> */}
         </tr>
       </thead>
       <tbody>
         {Object.keys(dadosFormulario).map((indexEmpresa) => {
+          const empresa = dadosFormulario[indexEmpresa];
+
           return (
             <tr key={indexEmpresa}>
-              <td>{dadosFormulario[indexEmpresa].inputRazaoSocial}</td>
-              <td>{dadosFormulario[indexEmpresa].inputCNPJ}</td>
-              <td>{dadosFormulario[indexEmpresa].inputNomeFantasia}</td>
-              <td>{dadosFormulario[indexEmpresa].inputEmail}</td>
-              <td>{dadosFormulario[indexEmpresa].inputTelefone}</td>
-              <td>{dadosFormulario[indexEmpresa].inputCelular}</td>
-              {/* <td>{dadosFormulario[indexEmpresa].inputCEP}</td>
-              <td>{dadosFormulario[indexEmpresa].inputLogradouro}</td>
-              <td>{dadosFormulario[indexEmpresa].inputNumero}</td>
-              <td>{dadosFormulario[indexEmpresa].inputBairro}</td>
-              <td>{dadosFormulario[indexEmpresa].inputCidade}</td>
-              <td>{dadosFormulario[indexEmpresa].inputEstado}</td>
-              <td>{dadosFormulario[indexEmpresa].inputComplemento}</td> */}
+              <td>{empresa.inputRazaoSocial}</td>
+              <td>{empresa.inputCNPJ}</td>
+              <td>{empresa.inputNomeFantasia}</td>
+              <td>{empresa.inputEmail}</td>
+              <td>{empresa.inputTelefone}</td>
+              <td>{empresa.inputCelular}</td>
+              <td>
+                <Button onClick={() => botaoModal(indexEmpresa)}>
+                  Ver mais
+                </Button>
+              </td>
+
+              {empresaSelecionada === indexEmpresa && (
+                <Modal show={true} onHide={() => setEmpresaSelecionada(null)}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Informações completas</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <ListGroup>
+                      <ListGroupItem>
+                        Razão Social: {empresa.inputRazaoSocial}
+                      </ListGroupItem>
+                      <ListGroupItem>CNPJ: {empresa.inputCNPJ}</ListGroupItem>
+                      <ListGroupItem>
+                        Nome Fantasia: {empresa.inputNomeFantasia}
+                      </ListGroupItem>
+                      <ListGroupItem>Email: {empresa.inputEmail}</ListGroupItem>
+                      {empresa.inputTelefone !== "" && (
+                        <ListGroupItem>
+                          Telefone: {empresa.inputTelefone}
+                        </ListGroupItem>
+                      )}
+                      <ListGroupItem>
+                        Celular: {empresa.inputCelular}
+                      </ListGroupItem>
+                      <ListGroupItem>CEP: {empresa.inputCEP}</ListGroupItem>
+                      <ListGroupItem>
+                        Logradouro: {empresa.inputLogradouro}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Número: {empresa.inputNumero}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Bairro: {empresa.inputBairro}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Cidade: {empresa.inputCidade}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Estado: {empresa.inputEstado}
+                      </ListGroupItem>
+                      {empresa.inputComplemento !== "" && (
+                        <ListGroupItem>
+                          Complemento: {empresa.inputComplemento}
+                        </ListGroupItem>
+                      )}
+                    </ListGroup>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button onClick={() => setMedicamentoSelecionado(null)}>
+                      Fechar
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              )}
             </tr>
           );
         })}
