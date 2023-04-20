@@ -9,7 +9,7 @@ export default function LoginForm() {
   };
 
   return (
-    <SCLoginForm onSubmit={(e) => validarLogin(e)}>
+    <SCLoginForm onSubmit={validarLogin}>
       <div className="campo">
         <label htmlFor="email">Email:</label>
         <input
