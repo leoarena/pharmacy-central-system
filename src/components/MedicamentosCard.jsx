@@ -21,10 +21,10 @@ export default function MedicamentosCard({ dadosFormulario }) {
             className="m-3"
             style={{ width: "15vw" }}
           >
-            <div className="d-flex justify-content-center m-1 mt-4 fs-1">
-              <FontAwesomeIcon icon={faBriefcaseMedical} />
+            <div className="d-flex justify-content-center m-1 mt-4">
+              <FontAwesomeIcon icon={faBriefcaseMedical} className="fa-4x" />
             </div>
-            <Card.Body>
+            <Card.Body className="text-center">
               <Card.Title>{medicamento.inputMedicamento}</Card.Title>
               <Card.Text>{medicamento.inputLaboratorio}</Card.Text>
 
