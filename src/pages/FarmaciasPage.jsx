@@ -22,13 +22,19 @@ export default function FarmaciasPage() {
     <Container className="d-flex flex-column align-items-center">
       <H1>Listagem de Farmácias</H1>
       <div>
-        <Button onClick={alterarVisualizacao} className="m-1">
+        <Button
+          variant="secondary"
+          onClick={alterarVisualizacao}
+          className="m-1"
+        >
           {visualizacao === "mapa"
             ? "Visualizar como tabela"
             : "Visualizar como mapa"}
         </Button>
         <Link to="/cadastro-farmacia">
-          <Button className="m-1">Cadastrar nova farmácia</Button>
+          <Button variant="success" className="m-1">
+            Cadastrar nova farmácia
+          </Button>
         </Link>
       </div>
       {visualizacao === "mapa" ? (

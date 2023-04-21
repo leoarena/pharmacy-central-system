@@ -24,13 +24,19 @@ export default function MedicamentosPage() {
     <Container className="d-flex flex-column align-items-center">
       <H1>Listagem de Medicamentos</H1>
       <div>
-        <Button onClick={alterarVisualizacao} className="m-1">
+        <Button
+          variant="secondary"
+          onClick={alterarVisualizacao}
+          className="m-1"
+        >
           {visualizacao === "tabela"
             ? "Visualizar como card"
             : "Visualizar como tabela"}
         </Button>
         <Link to="/cadastro-medicamento">
-          <Button className="m-1">Cadastrar novo medicamento</Button>
+          <Button variant="success" className="m-1">
+            Cadastrar novo medicamento
+          </Button>
         </Link>
       </div>
       {visualizacao === "tabela" ? (
