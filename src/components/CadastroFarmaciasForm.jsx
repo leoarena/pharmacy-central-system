@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { SCCadastroFarmaciasForm } from "./styledComponents";
 import { useNavigate } from "react-router-dom";
+import { Button, Col, Form, Row } from "react-bootstrap";
 
 export default function CadastroFarmaciasForm() {
   const [inputRazaoSocial, setInputRazaoSocial] = useState("");
@@ -90,180 +90,263 @@ export default function CadastroFarmaciasForm() {
   };
 
   return (
-    <SCCadastroFarmaciasForm onSubmit={handleSubmit}>
-      <div className="item">
-        <label htmlFor="razao-social">Razão Social:</label>
-        <input
-          type="text"
-          name="razaoSocial"
-          id="razao-social"
-          required
-          value={inputRazaoSocial}
-          onChange={(e) => setInputRazaoSocial(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="cnpj">CNPJ:</label>
-        <input
-          type="number"
-          name="cnpj"
-          id="cnpj"
-          required
-          value={inputCNPJ}
-          onChange={(e) => setInputCNPJ(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="nome-fantasia">Nome Fantasia:</label>
-        <input
-          type="text"
-          name="nomeFantasia"
-          id="nome-fantasia"
-          required
-          value={inputNomeFantasia}
-          onChange={(e) => setInputNomeFantasia(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          required
-          value={inputEmail}
-          onChange={(e) => setInputEmail(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="telefone">Telefone:</label>
-        <input
-          type="tel"
-          name="telefone"
-          id="telefone"
-          value={inputTelefone}
-          onChange={(e) => setInputTelefone(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="celular">Celular:</label>
-        <input
-          type="tel"
-          name="celular"
-          id="celular"
-          required
-          value={inputCelular}
-          onChange={(e) => setInputCelular(e.target.value)}
-        />
-      </div>
-
-      {/* <div className="divider"></div> */}
-
-      <div className="item">
-        <label htmlFor="cep">CEP:</label>
-        <input
-          type="number"
-          name="cep"
-          id="cep"
-          required
-          maxLength={8}
-          value={inputCEP}
-          onChange={(e) => setInputCEP(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="logradouro">Logradouro:</label>
-        <input
-          type="text"
-          name="logradouro"
-          id="logradouro"
-          required
-          value={inputLogradouro}
-          onChange={(e) => setInputLogradouro(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="numero">Número:</label>
-        <input
-          type="number"
-          name="numero"
-          id="numero"
-          required
-          value={inputNumero}
-          onChange={(e) => setInputNumero(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="bairro">Bairro:</label>
-        <input
-          type="text"
-          name="bairro"
-          id="bairro"
-          required
-          value={inputBairro}
-          onChange={(e) => setInputBairro(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="cidade">Cidade:</label>
-        <input
-          type="text"
-          name="cidade"
-          id="cidade"
-          required
-          value={inputCidade}
-          onChange={(e) => setInputCidade(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="estado">Estado:</label>
-        <input
-          type="text"
-          name="estado"
-          id="estado"
-          required
-          value={inputEstado}
-          onChange={(e) => setInputEstado(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="complemento">Complemento:</label>
-        <input
-          type="text"
-          name="complemento"
-          id="complemento"
-          value={inputComplemento}
-          onChange={(e) => setInputComplemento(e.target.value)}
-        />
-      </div>
-
-      {/* <div className="item">
-        <label htmlFor="latitude">Latitude</label>
-        <input type="text" name="latitude" id="latitude" />
-      </div>
-
-      <div className="item">
-        <label htmlFor="longitude">Longitude</label>
-        <input type="text" name="longitude" id="longitude" />
-      </div> */}
-
-      <div className="botoes">
-        <button type="button" onClick={limparInputs}>
+    <Form onSubmit={handleSubmit} className="skyblue p-2 rounded">
+      <Row className="mb-2">
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="razao-social" className="mb-1">
+              Razão Social:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="razaoSocial"
+              id="razao-social"
+              required
+              placeholder="Razão Social"
+              value={inputRazaoSocial}
+              onChange={(e) => setInputRazaoSocial(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="cnpj" className="mb-1">
+              CNPJ:
+            </Form.Label>
+            <Form.Control
+              type="number"
+              name="cnpj"
+              id="cnpj"
+              required
+              placeholder="CNPJ"
+              value={inputCNPJ}
+              onChange={(e) => setInputCNPJ(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="nome-fantasia" className="mb-1">
+              Nome Fantasia:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="nomeFantasia"
+              id="nome-fantasia"
+              required
+              placeholder="Nome Fantasia"
+              value={inputNomeFantasia}
+              onChange={(e) => setInputNomeFantasia(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="email" className="mb-1">
+              Email:
+            </Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="Email"
+              value={inputEmail}
+              onChange={(e) => setInputEmail(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="telefone" className="mb-1">
+              Telefone:
+            </Form.Label>
+            <Form.Control
+              type="number"
+              name="telefone"
+              id="telefone"
+              placeholder="Telefone"
+              value={inputTelefone}
+              onChange={(e) => setInputTelefone(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="celular" className="mb-1">
+              Celular:
+            </Form.Label>
+            <Form.Control
+              type="number"
+              name="celular"
+              id="celular"
+              required
+              placeholder="Celular"
+              value={inputCelular}
+              onChange={(e) => setInputCelular(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <hr />
+      <Row className="mb-2">
+        <Col xs={2}>
+          <Form.Group className="">
+            <Form.Label htmlFor="cep" className="mb-1">
+              CEP:
+            </Form.Label>
+            <Form.Control
+              type="number"
+              name="cep"
+              id="cep"
+              required
+              placeholder="CEP"
+              value={inputCEP}
+              onChange={(e) => setInputCEP(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="logradouro" className="mb-1">
+              Logradouro:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="logradouro"
+              id="logradouro"
+              required
+              placeholder="Logradouro"
+              value={inputLogradouro}
+              onChange={(e) => setInputLogradouro(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col xs={2}>
+          <Form.Group className="">
+            <Form.Label htmlFor="numero" className="mb-1">
+              Número:
+            </Form.Label>
+            <Form.Control
+              type="number"
+              name="numero"
+              id="numero"
+              required
+              placeholder="Número"
+              value={inputNumero}
+              onChange={(e) => setInputNumero(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row className="mb-2">
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="bairro" className="mb-1">
+              Bairro:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="bairro"
+              id="bairro"
+              required
+              placeholder="Bairro"
+              value={inputBairro}
+              onChange={(e) => setInputBairro(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="cidade" className="mb-1">
+              Cidade:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="cidade"
+              id="cidade"
+              required
+              placeholder="Cidade"
+              value={inputCidade}
+              onChange={(e) => setInputCidade(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="estado" className="mb-1">
+              Estado:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="estado"
+              id="estado"
+              required
+              placeholder="Estado"
+              value={inputEstado}
+              onChange={(e) => setInputEstado(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row className="mb-2">
+        <Col>
+          <Form.Group className="">
+            <Form.Label htmlFor="complemento" className="mb-1">
+              Complemento:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="complemento"
+              id="complemento"
+              placeholder="Complemento"
+              value={inputComplemento}
+              onChange={(e) => setInputComplemento(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col xs={3}>
+          <Form.Group className="">
+            <Form.Label htmlFor="latitude" className="mb-1">
+              Latitude:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="latitude"
+              id="latitude"
+              placeholder="Latitude"
+            />
+          </Form.Group>
+        </Col>
+        <Col xs={3}>
+          <Form.Group className="">
+            <Form.Label htmlFor="longitude" className="mb-1">
+              Longitude:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="longitude"
+              id="longitude"
+              placeholder="Longitude"
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <div className="mt-4 d-flex justify-content-end">
+        <Button
+          variant="light"
+          type="button"
+          onClick={limparInputs}
+          className="mx-1"
+        >
           Limpar
-        </button>
-        <button type="submit">Salvar</button>
+        </Button>
+        <Button variant="success" type="submit" className="mx-1">
+          Salvar
+        </Button>
       </div>
-    </SCCadastroFarmaciasForm>
+    </Form>
   );
 }

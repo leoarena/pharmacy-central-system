@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SCCadastroMedicamentosForm } from "./styledComponents";
+import { Form } from "react-bootstrap";
 
 export default function CadastroMedicamentosForm() {
   const [inputMedicamento, setInputMedicamento] = useState("");
@@ -51,7 +51,7 @@ export default function CadastroMedicamentosForm() {
   };
 
   return (
-    <SCCadastroMedicamentosForm onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <div className="item">
         <label htmlFor="medicamento">Medicamento:</label>
         <input
@@ -133,6 +133,6 @@ export default function CadastroMedicamentosForm() {
         </button>
         <button type="submit">Salvar</button>
       </div>
-    </SCCadastroMedicamentosForm>
+    </Form>
   );
 }
