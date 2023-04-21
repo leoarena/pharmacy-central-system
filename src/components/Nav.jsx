@@ -1,38 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
-import { SCNav } from "./styledComponents";
-import { Link, useLocation } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Button, Nav, Navbar } from "react-bootstrap";
 
-export default function Nav() {
-  const location = useLocation();
-  const currentLocation = location.pathname;
+export default function NavComponent() {
+  const { pathname: rotaAtual } = useLocation();
+  const navigate = useNavigate();
 
   return (
-    <SCNav>
-      <div className="nav-left">
-        <div className="icon">
-          <FontAwesomeIcon icon={faLaptopMedical} />
-        </div>
-        <span>Pharmacy Central System</span>
-      </div>
-      {currentLocation === "/" ? (
-        <div className="nav-right">
-          <span>Login</span>
+    <Navbar bg="primary" expand="lg" style={{ height: "45px" }}>
+      <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
+      <span>Pharmacy Central System</span>
+      {rotaAtual === "/" ? (
+        <div className="ms-auto">
+          <span className="pe-2">Login</span>
         </div>
       ) : (
-        <div className="nav-right">
-          <Link to="/farmacias">
-            <Button className="nav-buttons">Farmácias</Button>
-          </Link>
-          <Link to="/medicamentos">
-            <Button className="nav-buttons">Medicamentos</Button>
-          </Link>
-          <Link to="/">
-            <Button className="nav-buttons sair-button">Sair</Button>
-          </Link>
-        </div>
+        <Navbar.Collapse>
+          <Nav className="ms-auto">
+            <Nav.Link href="/farmacias">Farmácias</Nav.Link>
+            <Nav.Link href="/medicamentos">Medicamentos</Nav.Link>
+            <Button onClick={() => navigate("/")}>Sair</Button>
+          </Nav>
+        </Navbar.Collapse>
       )}
-    </SCNav>
+    </Navbar>
   );
 }
