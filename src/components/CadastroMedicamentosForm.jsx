@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function CadastroMedicamentosForm() {
   const [inputMedicamento, setInputMedicamento] = useState("");
@@ -8,8 +9,9 @@ export default function CadastroMedicamentosForm() {
   const [inputTipo, setInputTipo] = useState("");
   const [inputPrecoUnitario, setInputPrecoUnitario] = useState("");
   const [inputDescricao, setInputDescricao] = useState("");
-
   const [dadosMedicamentos, setDadosMedicamentos] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const dadosLocalStorage = localStorage.getItem("dadosMedicamentos");
@@ -35,7 +37,8 @@ export default function CadastroMedicamentosForm() {
         JSON.stringify(dadosAtualizados)
       );
       alert("Medicamento cadastrado com sucesso!");
-      console.log("formulário submetido");
+      limparInputs();
+      navigate("/medicamentos");
     } catch (error) {
       console.log("erro ao submeter formulário:", error);
     }
@@ -51,87 +54,121 @@ export default function CadastroMedicamentosForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <div className="item">
-        <label htmlFor="medicamento">Medicamento:</label>
-        <input
-          type="text"
-          name="medicamento"
-          id="medicamento"
-          required
-          value={inputMedicamento}
-          onChange={(e) => setInputMedicamento(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="laboratorio">Laboratório:</label>
-        <input
-          type="text"
-          name="laboratorio"
-          id="laboratorio"
-          required
-          value={inputLaboratorio}
-          onChange={(e) => setInputLaboratorio(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="dosagem">Dosagem:</label>
-        <input
-          type="text"
-          name="dosagem"
-          id="dosagem"
-          required
-          value={inputDosagem}
-          onChange={(e) => setInputDosagem(e.target.value)}
-        />
-      </div>
-
-      <div className="item">
-        <label htmlFor="tipo">Tipo:</label>
-        <select
-          name="tipo"
-          id="tipo"
-          required
-          value={inputTipo}
-          onChange={(e) => setInputTipo(e.target.value)}
+    <Form onSubmit={handleSubmit} className="skyblue p-2 rounded">
+      <Row className="mb-2">
+        <Col>
+          <Form.Group>
+            <Form.Label htmlFor="medicamento" className="mb-1">
+              Medicamento:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="medicamento"
+              id="medicamento"
+              required
+              placeholder="Medicamento"
+              value={inputMedicamento}
+              onChange={(e) => setInputMedicamento(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group>
+            <Form.Label htmlFor="laboratorio" className="mb-1">
+              Laboratório:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="laboratorio"
+              id="laboratorio"
+              required
+              placeholder="Laboratório"
+              value={inputLaboratorio}
+              onChange={(e) => setInputLaboratorio(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row className="mb-2">
+        <Col>
+          <Form.Group>
+            <Form.Label htmlFor="dosagem" className="mb-1">
+              Dosagem:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="dosagem"
+              id="dosagem"
+              required
+              placeholder="Dosagem"
+              value={inputDosagem}
+              onChange={(e) => setInputDosagem(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group>
+            <Form.Label htmlFor="tipo" className="mb-1">
+              Tipo:
+            </Form.Label>
+            <Form.Select
+              name="tipo"
+              id="tipo"
+              required
+              value={inputTipo}
+              onChange={(e) => setInputTipo(e.target.value)}
+            >
+              <option value="">Selecione</option>
+              <option value="controlado">Medicamento Controlado</option>
+              <option value="comum">Medicamento Comum</option>
+            </Form.Select>
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group>
+            <Form.Label htmlFor="preco-unitario" className="mb-1">
+              Preço Unitário:
+            </Form.Label>
+            <Form.Control
+              type="number"
+              name="preco-unitario"
+              id="preco-unitario"
+              required
+              placeholder="Preço Unitário"
+              value={inputPrecoUnitario}
+              onChange={(e) => setInputPrecoUnitario(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row>
+        <Form.Group>
+          <Form.Label htmlFor="descricao" className="mb-1">
+            Descrição:
+          </Form.Label>
+          <Form.Control
+            as="textarea"
+            name="descricao"
+            id="descricao"
+            rows="5"
+            placeholder="Descrição"
+            value={inputDescricao}
+            onChange={(e) => setInputDescricao(e.target.value)}
+          />
+        </Form.Group>
+      </Row>
+      <div className="mt-4 d-flex justify-content-end">
+        <Button
+          variant="light"
+          type="button"
+          onClick={limparInputs}
+          className="mx-1"
         >
-          <option value="">Selecione</option>
-          <option value="controlado">Medicamento Controlado</option>
-          <option value="comum">Medicamento Comum</option>
-        </select>
-      </div>
-
-      <div className="item">
-        <label htmlFor="preco-unitario">Preço Unitário:</label>
-        <input
-          type="number"
-          name="preco-unitario"
-          id="preco-unitario"
-          value={inputPrecoUnitario}
-          onChange={(e) => setInputPrecoUnitario(e.target.value)}
-        />
-      </div>
-
-      {/* <div className="divider"></div> */}
-
-      <div className="item">
-        <label htmlFor="descricao">Descrição:</label>
-        <textarea
-          name="descricao"
-          id="descricao"
-          rows="5"
-          value={inputDescricao}
-          onChange={(e) => setInputDescricao(e.target.value)}
-        />
-      </div>
-
-      <div className="botoes">
-        <button type="button" onClick={limparInputs}>
           Limpar
-        </button>
-        <button type="submit">Salvar</button>
+        </Button>
+        <Button variant="success" type="submit" className="mx-1">
+          Salvar
+        </Button>
       </div>
     </Form>
   );
