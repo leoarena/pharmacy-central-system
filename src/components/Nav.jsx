@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Nav, Navbar } from "react-bootstrap";
 
 export default function NavComponent() {
@@ -8,7 +8,7 @@ export default function NavComponent() {
   const navigate = useNavigate();
 
   return (
-    <Navbar bg="primary" expand="lg" style={{ height: "45px" }}>
+    <Navbar className="skyblue" expand="lg" style={{ height: "45px" }}>
       <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
       <span>Pharmacy Central System</span>
       {rotaAtual === "/" ? (
