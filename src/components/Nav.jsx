@@ -13,14 +13,24 @@ export default function NavComponent() {
       <span>Pharmacy Central System</span>
       {rotaAtual === "/" ? (
         <div className="ms-auto">
-          <span className="pe-2">Login</span>
+          <span className="me-2">Login</span>
         </div>
       ) : (
         <Navbar.Collapse>
           <Nav className="ms-auto">
-            <Nav.Link href="/farmacias">Farmácias</Nav.Link>
-            <Nav.Link href="/medicamentos">Medicamentos</Nav.Link>
-            <Button onClick={() => navigate("/")}>Sair</Button>
+            <Button variant="" href="/farmacias" className="border-0">
+              Farmácias
+            </Button>
+            <Button variant="" href="/medicamentos" className="border-0">
+              Medicamentos
+            </Button>
+            <Button
+              variant="danger"
+              onClick={() => navigate("/")}
+              className="me-1 border-dark"
+            >
+              Sair
+            </Button>
           </Nav>
         </Navbar.Collapse>
       )}
