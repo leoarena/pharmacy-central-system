@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SCCadastroFarmaciasForm } from "./styledComponents";
+import { useNavigate } from "react-router-dom";
 
 export default function CadastroFarmaciasForm() {
   const [inputRazaoSocial, setInputRazaoSocial] = useState("");
@@ -15,8 +16,9 @@ export default function CadastroFarmaciasForm() {
   const [inputBairro, setInputBairro] = useState("");
   const [inputCidade, setInputCidade] = useState("");
   const [inputEstado, setInputEstado] = useState("");
-
   const [dadosEmpresas, setDadosEmpresas] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const dadosLocalStorage = localStorage.getItem("dadosEmpresas");
@@ -46,7 +48,8 @@ export default function CadastroFarmaciasForm() {
       setDadosEmpresas(dadosAtualizados);
       localStorage.setItem("dadosEmpresas", JSON.stringify(dadosAtualizados));
       alert("Empresa cadastrada com sucesso!");
-      console.log("formulário submetido");
+      limparInputs();
+      navigate("/farmacias");
     } catch (error) {
       console.log("erro ao submeter formulário:", error);
     }
@@ -57,18 +60,17 @@ export default function CadastroFarmaciasForm() {
   }, [inputCEP]);
 
   const buscarCEP = () => {
-    console.log("deu");
     fetch(`https://viacep.com.br/ws/${inputCEP}/json/`)
-      .then((response) => response.json())
-      .then((JSONresponse) => inputsEndereco(JSONresponse))
+      .then((resposta) => resposta.json())
+      .then((objetoResposta) => inputsEndereco(objetoResposta))
       .catch((error) => console.log(error));
   };
 
-  const inputsEndereco = (JSONresponse) => {
-    setInputLogradouro(JSONresponse.logradouro);
-    setInputBairro(JSONresponse.bairro);
-    setInputCidade(JSONresponse.localidade);
-    setInputEstado(JSONresponse.uf);
+  const inputsEndereco = (objeto) => {
+    setInputLogradouro(objeto.logradouro);
+    setInputBairro(objeto.bairro);
+    setInputCidade(objeto.localidade);
+    setInputEstado(objeto.uf);
   };
 
   const limparInputs = () => {
