@@ -9,9 +9,12 @@ export default function LoginForm() {
   };
 
   return (
-    <Form onSubmit={validarLogin} className="mt-4">
+    <Form onSubmit={validarLogin} className="mt- skyblue p-5 rounded">
+      <h1 className="text-center mb-5">Login</h1>
       <Form.Group>
-        <Form.Label htmlFor="email">Email:</Form.Label>
+        <Form.Label htmlFor="email" className="mb-1">
+          Email:
+        </Form.Label>
         <Form.Control
           type="email"
           name="email"
@@ -22,7 +25,9 @@ export default function LoginForm() {
       </Form.Group>
 
       <Form.Group className="mt-2">
-        <Form.Label htmlFor="senha">Senha:</Form.Label>
+        <Form.Label htmlFor="senha" className="mb-1">
+          Senha:
+        </Form.Label>
         <Form.Control
           type="password"
           name="senha"
@@ -34,19 +39,20 @@ export default function LoginForm() {
       </Form.Group>
 
       <div className="mt-4 d-flex justify-content-center">
-        <Button type="submit" className="mx-1">
+        <Button variant="outline-dark" type="submit" className="mx-1 light">
           Entrar
         </Button>
         <Button
+          variant="outline-dark"
           type="button"
-          className="mx-1"
+          className="mx-1 light"
           onClick={() => navigate("/cadastre-se")}
         >
           Cadastrar-se
         </Button>
       </div>
-      <div className="text-center mt-2 ">
-        <a href="/recuperar" className="text-decoration-none">
+      <div className="text-center mt-2">
+        <a href="/recuperar" className="link-login text-dark">
           Esqueceu sua senha?
         </a>
       </div>

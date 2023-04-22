@@ -1,7 +1,6 @@
-import LoginForm from "../components/LoginForm";
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { H1 } from "../components/styledComponents";
+import LoginForm from "../components/LoginForm";
 
 export default function LoginPage() {
   useEffect(() => {
@@ -9,8 +8,10 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <Container className="d-flex flex-column align-items-center">
-      <H1 className="mt-5 pt-5">Login</H1>
+    <Container
+      className="d-flex flex-column align-items-center justify-content-center"
+      style={{ height: "85vh" }}
+    >
       <LoginForm />
     </Container>
   );
