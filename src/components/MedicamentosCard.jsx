@@ -1,9 +1,11 @@
 import { Button, Card, ListGroup, ListGroupItem, Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DadosContext } from "../contexts/DadosContext";
 
-export default function MedicamentosCard({ dadosFormulario }) {
+export default function MedicamentosCard() {
+  const { medicamentosLocalStorage } = useContext(DadosContext);
   const [medicamentoSelecionado, setMedicamentoSelecionado] = useState(null);
 
   const botaoModal = (indexMedicamento) => {
@@ -12,8 +14,8 @@ export default function MedicamentosCard({ dadosFormulario }) {
 
   return (
     <div className="d-flex flex-wrap justify-content-between my-4">
-      {Object.keys(dadosFormulario).map((indexMedicamento) => {
-        const medicamento = dadosFormulario[indexMedicamento];
+      {Object.keys(medicamentosLocalStorage).map((indexMedicamento) => {
+        const medicamento = medicamentosLocalStorage[indexMedicamento];
 
         return (
           <Card

@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Table } from "react-bootstrap";
+import { DadosContext } from "../contexts/DadosContext";
 
-export default function MedicamentosTable({ dadosFormulario }) {
+export default function MedicamentosTable() {
+  const { medicamentosLocalStorage } = useContext(DadosContext);
   return (
     <Table className="my-4">
       <thead>
@@ -14,15 +17,16 @@ export default function MedicamentosTable({ dadosFormulario }) {
         </tr>
       </thead>
       <tbody>
-        {Object.keys(dadosFormulario).map((indexMedicamento) => {
+        {Object.keys(medicamentosLocalStorage).map((indexMedicamento) => {
+          const medicamento = medicamentosLocalStorage[indexMedicamento];
           return (
             <tr key={indexMedicamento}>
-              <td>{dadosFormulario[indexMedicamento].inputMedicamento}</td>
-              <td>{dadosFormulario[indexMedicamento].inputLaboratorio}</td>
-              <td>{dadosFormulario[indexMedicamento].inputDosagem}</td>
-              <td>{dadosFormulario[indexMedicamento].inputTipo}</td>
-              <td>{dadosFormulario[indexMedicamento].inputPrecoUnitario}</td>
-              <td>{dadosFormulario[indexMedicamento].inputDescricao}</td>
+              <td>{medicamento.inputMedicamento}</td>
+              <td>{medicamento.inputLaboratorio}</td>
+              <td>{medicamento.inputDosagem}</td>
+              <td>{medicamento.inputTipo}</td>
+              <td>{medicamento.inputPrecoUnitario}</td>
+              <td>{medicamento.inputDescricao}</td>
             </tr>
           );
         })}

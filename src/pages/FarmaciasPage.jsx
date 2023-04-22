@@ -4,15 +4,13 @@ import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { H1 } from "../components/styledComponents";
 import FarmaciasMap from "../components/FarmaciasMap";
+import { Provider } from "../contexts/DadosContext";
 
 export default function FarmaciasPage() {
-  const [dadosFormulario, setDadosFormulario] = useState({});
   const [visualizacao, setVisualizacao] = useState("mapa");
 
   useEffect(() => {
     document.title = "Farmácias";
-    const dadosLocalStorage = JSON.parse(localStorage.getItem("dadosEmpresas"));
-    if (dadosLocalStorage) setDadosFormulario(dadosLocalStorage);
   }, []);
 
   const alterarVisualizacao = () =>
@@ -38,9 +36,9 @@ export default function FarmaciasPage() {
         </Link>
       </div>
       {visualizacao === "mapa" ? (
-        <FarmaciasMap dadosFormulario={dadosFormulario} />
+        <Provider children={<FarmaciasMap />} />
       ) : (
-        <FarmaciasTable dadosFormulario={dadosFormulario} />
+        <Provider children={<FarmaciasTable />} />
       )}
     </Container>
   );

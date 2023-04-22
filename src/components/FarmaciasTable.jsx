@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Button,
   ListGroup,
@@ -6,8 +6,10 @@ import {
   Modal,
   Table,
 } from "react-bootstrap";
+import { DadosContext } from "../contexts/DadosContext";
 
-export default function FarmaciasTable({ dadosFormulario }) {
+export default function FarmaciasTable() {
+  const { empresasLocalStorage } = useContext(DadosContext);
   const [empresaSelecionada, setEmpresaSelecionada] = useState(null);
 
   const botaoModal = (indexEmpresa) => {
@@ -27,8 +29,8 @@ export default function FarmaciasTable({ dadosFormulario }) {
         </tr>
       </thead>
       <tbody>
-        {Object.keys(dadosFormulario).map((indexEmpresa) => {
-          const empresa = dadosFormulario[indexEmpresa];
+        {Object.keys(empresasLocalStorage).map((indexEmpresa) => {
+          const empresa = empresasLocalStorage[indexEmpresa];
 
           return (
             <tr key={indexEmpresa}>

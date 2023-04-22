@@ -4,17 +4,13 @@ import MedicamentosTable from "../components/MedicamentosTable";
 import { Button, Container } from "react-bootstrap";
 import MedicamentosCard from "../components/MedicamentosCard";
 import { H1 } from "../components/styledComponents";
+import { Provider } from "../contexts/DadosContext";
 
 export default function MedicamentosPage() {
-  const [dadosFormulario, setDadosFormulario] = useState({});
   const [visualizacao, setVisualizacao] = useState("card");
 
   useEffect(() => {
     document.title = "Medicamentos";
-    const dadosLocalStorage = JSON.parse(
-      localStorage.getItem("dadosMedicamentos")
-    );
-    if (dadosLocalStorage) setDadosFormulario(dadosLocalStorage);
   }, []);
 
   const alterarVisualizacao = () =>
@@ -40,9 +36,9 @@ export default function MedicamentosPage() {
         </Link>
       </div>
       {visualizacao === "tabela" ? (
-        <MedicamentosTable dadosFormulario={dadosFormulario} />
+        <Provider children={<MedicamentosTable />} />
       ) : (
-        <MedicamentosCard dadosFormulario={dadosFormulario} />
+        <Provider children={<MedicamentosCard />} />
       )}
     </Container>
   );

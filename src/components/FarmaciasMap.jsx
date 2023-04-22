@@ -1,7 +1,10 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { useContext } from "react";
+import { DadosContext } from "../contexts/DadosContext";
 
-export default function FarmaciasApp({ dadosFormulario }) {
+export default function FarmaciasApp() {
+  const { empresasLocalStorage } = useContext(DadosContext);
   const position = [-27.597502435558525, -48.54972353282047];
 
   return (
@@ -12,8 +15,8 @@ export default function FarmaciasApp({ dadosFormulario }) {
       className="mt-4"
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {Object.keys(dadosFormulario).map((indexEmpresa) => {
-        const empresa = dadosFormulario[indexEmpresa];
+      {Object.keys(empresasLocalStorage).map((indexEmpresa) => {
+        const empresa = empresasLocalStorage[indexEmpresa];
         if (empresa.inputLatitude && empresa.inputLongitude) {
           return (
             <Marker position={[empresa.inputLatitude, empresa.inputLongitude]}>
