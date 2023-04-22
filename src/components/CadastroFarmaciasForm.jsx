@@ -16,6 +16,8 @@ export default function CadastroFarmaciasForm() {
   const [inputBairro, setInputBairro] = useState("");
   const [inputCidade, setInputCidade] = useState("");
   const [inputEstado, setInputEstado] = useState("");
+  const [inputLatitude, setInputLatitude] = useState("");
+  const [inputLongitude, setInputLogintude] = useState("");
   const [dadosEmpresas, setDadosEmpresas] = useState([]);
 
   const navigate = useNavigate();
@@ -33,12 +35,14 @@ export default function CadastroFarmaciasForm() {
     inputTelefone,
     inputCelular,
     inputCEP,
-    inputNumero,
-    inputComplemento,
     inputLogradouro,
+    inputNumero,
     inputBairro,
     inputCidade,
     inputEstado,
+    inputComplemento,
+    inputLatitude,
+    inputLongitude,
   };
 
   const handleSubmit = (e) => {
@@ -87,6 +91,8 @@ export default function CadastroFarmaciasForm() {
     setInputCidade("");
     setInputEstado("");
     setInputComplemento("");
+    setInputLatitude("");
+    setInputLogintude("");
   };
 
   return (
@@ -317,6 +323,8 @@ export default function CadastroFarmaciasForm() {
               name="latitude"
               id="latitude"
               placeholder="Latitude"
+              value={inputLatitude}
+              onChange={(e) => setInputLatitude(e.target.value)}
             />
           </Form.Group>
         </Col>
@@ -330,6 +338,8 @@ export default function CadastroFarmaciasForm() {
               name="longitude"
               id="longitude"
               placeholder="Longitude"
+              value={inputLongitude}
+              onChange={(e) => setInputLogintude(e.target.value)}
             />
           </Form.Group>
         </Col>
