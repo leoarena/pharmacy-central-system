@@ -88,6 +88,17 @@ export default function FarmaciasTable({ dadosFormulario }) {
                           Complemento: {empresa.inputComplemento}
                         </ListGroupItem>
                       )}
+
+                      {empresa.inputLatitude !== "" && (
+                        <ListGroupItem>
+                          Latitude: {empresa.inputLatitude}
+                        </ListGroupItem>
+                      )}
+                      {empresa.inputLongitude !== "" && (
+                        <ListGroupItem>
+                          Longitude: {empresa.inputLongitude}
+                        </ListGroupItem>
+                      )}
                     </ListGroup>
                   </Modal.Body>
                   <Modal.Footer>
