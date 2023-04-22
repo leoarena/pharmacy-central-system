@@ -14,19 +14,20 @@ export default function FarmaciasApp({ dadosFormulario }) {
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {Object.keys(dadosFormulario).map((indexEmpresa) => {
         const empresa = dadosFormulario[indexEmpresa];
-
-        return (
-          <Marker position={[empresa.inputLatitude, empresa.inputLongitude]}>
-            <Popup>
-              <b>Razão Social:</b> {empresa.inputRazaoSocial} <br />
-              <b>CNPJ:</b> {empresa.inputCNPJ} <br />
-              <b>Nome Fantasia:</b> {empresa.inputNomeFantasia} <br />
-              <b>Email:</b> {empresa.inputEmail} <br />
-              <b>Telefone:</b> {empresa.inputTelefone} <br />
-              <b>Celular:</b> {empresa.inputCelular} <br />
-            </Popup>
-          </Marker>
-        );
+        if (empresa.inputLatitude && empresa.inputLongitude) {
+          return (
+            <Marker position={[empresa.inputLatitude, empresa.inputLongitude]}>
+              <Popup>
+                <b>Razão Social:</b> {empresa.inputRazaoSocial} <br />
+                <b>CNPJ:</b> {empresa.inputCNPJ} <br />
+                <b>Nome Fantasia:</b> {empresa.inputNomeFantasia} <br />
+                <b>Email:</b> {empresa.inputEmail} <br />
+                <b>Telefone:</b> {empresa.inputTelefone} <br />
+                <b>Celular:</b> {empresa.inputCelular} <br />
+              </Popup>
+            </Marker>
+          );
+        }
       })}
     </MapContainer>
   );
