@@ -38,7 +38,7 @@ export default function FarmaciasPage() {
         </Link>
       </div>
       {visualizacao === "mapa" ? (
-        <FarmaciasMap />
+        <FarmaciasMap dadosFormulario={dadosFormulario} />
       ) : (
         <FarmaciasTable dadosFormulario={dadosFormulario} />
       )}
