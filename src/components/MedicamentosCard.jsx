@@ -13,16 +13,12 @@ export default function MedicamentosCard() {
   };
 
   return (
-    <div className="d-flex flex-wrap justify-content-between my-4">
+    <div className="d-flex flex-wrap my-4" style={{ width: "68vw" }}>
       {Object.keys(medicamentosLocalStorage).map((indexMedicamento) => {
         const medicamento = medicamentosLocalStorage[indexMedicamento];
 
         return (
-          <Card
-            key={indexMedicamento}
-            className="m-3"
-            style={{ width: "15vw" }}
-          >
+          <Card key={indexMedicamento} style={{ width: "15vw", margin: "1vw" }}>
             <div className="d-flex justify-content-center m-1 mt-4">
               <FontAwesomeIcon icon={faBriefcaseMedical} className="fa-4x" />
             </div>
