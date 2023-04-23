@@ -18,7 +18,8 @@ export default function NavComponent() {
       ) : (
         <Navbar.Collapse>
           <Nav className="ms-auto">
-            {rotaAtual === "/farmacias" ? (
+            {rotaAtual === "/farmacias" ||
+            rotaAtual === "/cadastro-farmacia" ? (
               <>
                 <Button
                   variant=""
