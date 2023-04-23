@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import MedicamentosTable from "../components/MedicamentosTable";
 import { Button, Container } from "react-bootstrap";
 import MedicamentosCard from "../components/MedicamentosCard";
-import { H1 } from "../components/styledComponents";
 import { ContextProvider } from "../contexts/DadosContext";
 
 export default function MedicamentosPage() {
@@ -18,7 +17,7 @@ export default function MedicamentosPage() {
 
   return (
     <Container className="d-flex flex-column align-items-center">
-      <H1>Listagem de Medicamentos</H1>
+      <h1 style={{ margin: "5vh 0" }}>Listagem de Medicamentos</h1>
       <div>
         <Button
           variant="secondary"

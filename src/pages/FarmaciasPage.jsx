@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import FarmaciasTable from "../components/FarmaciasTable";
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
-import { H1 } from "../components/styledComponents";
 import FarmaciasMap from "../components/FarmaciasMap";
 import { ContextProvider } from "../contexts/DadosContext";
 
@@ -18,7 +17,7 @@ export default function FarmaciasPage() {
 
   return (
     <Container className="d-flex flex-column align-items-center">
-      <H1>Listagem de Farmácias</H1>
+      <h1 style={{ margin: "5vh 0" }}>Listagem de Farmácias</h1>
       <div>
         <Button
           variant="secondary"

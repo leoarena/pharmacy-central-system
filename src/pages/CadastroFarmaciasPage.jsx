@@ -1,6 +1,5 @@
 import { Container } from "react-bootstrap";
 import CadastroFarmaciasForm from "../components/CadastroFarmaciasForm";
-import { H1 } from "../components/styledComponents";
 import { useEffect } from "react";
 
 export default function CadastroFarmaciasPage() {
@@ -10,7 +9,7 @@ export default function CadastroFarmaciasPage() {
 
   return (
     <Container className="d-flex flex-column align-items-center">
-      <H1>Cadastro de nova Farmácia</H1>
+      <h1 style={{ margin: "5vh 0" }}>Cadastro de nova Farmácia</h1>
       <CadastroFarmaciasForm />
     </Container>
   );
