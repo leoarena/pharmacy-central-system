@@ -9,8 +9,10 @@ export default function NavComponent() {
 
   return (
     <Navbar className="skyblue" expand="lg" style={{ height: "45px" }}>
-      <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
-      <span>Pharmacy Central System</span>
+      <Nav.Link href="/farmacias" className="d-flex align-items-center">
+        <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
+        <span>Pharmacy Central System</span>
+      </Nav.Link>
       {rotaAtual === "/" ? (
         <div className="ms-auto">
           <span className="me-2">Login</span>
