@@ -1,18 +1,23 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const DadosContext = createContext();
 
 export function ContextProvider({ children }) {
-  const empresasLocalStorage = JSON.parse(
-    localStorage.getItem("dadosEmpresas")
+  const [medicamentosLocalStorage, setMedicamentosLocalStorage] = useState(
+    JSON.parse(localStorage.getItem("dadosMedicamentos"))
   );
-  const medicamentosLocalStorage = JSON.parse(
-    localStorage.getItem("dadosMedicamentos")
+  const [empresasLocalStorage, setEmpresasLocalStorage] = useState(
+    JSON.parse(localStorage.getItem("dadosEmpresas"))
   );
 
   return (
     <DadosContext.Provider
-      value={{ empresasLocalStorage, medicamentosLocalStorage }}
+      value={{
+        empresasLocalStorage,
+        setEmpresasLocalStorage,
+        medicamentosLocalStorage,
+        setMedicamentosLocalStorage,
+      }}
     >
       {children}
     </DadosContext.Provider>

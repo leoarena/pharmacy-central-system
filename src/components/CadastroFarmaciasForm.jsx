@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { DadosContext } from "../contexts/DadosContext";
 
 export default function CadastroFarmaciasForm() {
   const [inputRazaoSocial, setInputRazaoSocial] = useState("");
@@ -17,15 +18,10 @@ export default function CadastroFarmaciasForm() {
   const [inputCidade, setInputCidade] = useState("");
   const [inputEstado, setInputEstado] = useState("");
   const [inputLatitude, setInputLatitude] = useState("");
-  const [inputLongitude, setInputLogintude] = useState("");
-  const [dadosEmpresas, setDadosEmpresas] = useState([]);
-
+  const [inputLongitude, setInputLongitude] = useState("");
+  const { empresasLocalStorage, setEmpresasLocalStorage } =
+    useContext(DadosContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const dadosLocalStorage = localStorage.getItem("dadosEmpresas");
-    if (dadosLocalStorage) setDadosEmpresas(JSON.parse(dadosLocalStorage));
-  }, []);
 
   const dadosNovaEmpresa = {
     inputRazaoSocial,
@@ -48,8 +44,8 @@ export default function CadastroFarmaciasForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const dadosAtualizados = [...dadosEmpresas, dadosNovaEmpresa];
-      setDadosEmpresas(dadosAtualizados);
+      const dadosAtualizados = [...empresasLocalStorage, dadosNovaEmpresa];
+      setEmpresasLocalStorage(dadosAtualizados);
       localStorage.setItem("dadosEmpresas", JSON.stringify(dadosAtualizados));
       alert("Empresa cadastrada com sucesso!");
       limparInputs();
@@ -60,7 +56,7 @@ export default function CadastroFarmaciasForm() {
   };
 
   useEffect(() => {
-    if (inputCEP.length === 9) buscarCEP();
+    if (inputCEP.length === 8) buscarCEP();
   }, [inputCEP]);
 
   const buscarCEP = () => {
@@ -92,14 +88,14 @@ export default function CadastroFarmaciasForm() {
     setInputEstado("");
     setInputComplemento("");
     setInputLatitude("");
-    setInputLogintude("");
+    setInputLongitude("");
   };
 
   return (
     <Form onSubmit={handleSubmit} className="skyblue p-2 rounded">
       <Row className="mb-2">
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="razao-social" className="mb-1">
               Razão Social:
             </Form.Label>
@@ -115,12 +111,12 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="cnpj" className="mb-1">
               CNPJ:
             </Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               name="cnpj"
               id="cnpj"
               required
@@ -131,7 +127,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="nome-fantasia" className="mb-1">
               Nome Fantasia:
             </Form.Label>
@@ -149,7 +145,7 @@ export default function CadastroFarmaciasForm() {
       </Row>
       <Row>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="email" className="mb-1">
               Email:
             </Form.Label>
@@ -165,7 +161,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="telefone" className="mb-1">
               Telefone:
             </Form.Label>
@@ -180,7 +176,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="celular" className="mb-1">
               Celular:
             </Form.Label>
@@ -199,7 +195,7 @@ export default function CadastroFarmaciasForm() {
       <hr />
       <Row className="mb-2">
         <Col xs={2}>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="cep" className="mb-1">
               CEP:
             </Form.Label>
@@ -215,7 +211,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="logradouro" className="mb-1">
               Logradouro:
             </Form.Label>
@@ -231,7 +227,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col xs={2}>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="numero" className="mb-1">
               Número:
             </Form.Label>
@@ -249,7 +245,7 @@ export default function CadastroFarmaciasForm() {
       </Row>
       <Row className="mb-2">
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="bairro" className="mb-1">
               Bairro:
             </Form.Label>
@@ -265,7 +261,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="cidade" className="mb-1">
               Cidade:
             </Form.Label>
@@ -281,7 +277,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="estado" className="mb-1">
               Estado:
             </Form.Label>
@@ -299,7 +295,7 @@ export default function CadastroFarmaciasForm() {
       </Row>
       <Row className="mb-2">
         <Col>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="complemento" className="mb-1">
               Complemento:
             </Form.Label>
@@ -314,7 +310,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col xs={3}>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="latitude" className="mb-1">
               Latitude:
             </Form.Label>
@@ -329,7 +325,7 @@ export default function CadastroFarmaciasForm() {
           </Form.Group>
         </Col>
         <Col xs={3}>
-          <Form.Group className="">
+          <Form.Group>
             <Form.Label htmlFor="longitude" className="mb-1">
               Longitude:
             </Form.Label>
@@ -339,7 +335,7 @@ export default function CadastroFarmaciasForm() {
               id="longitude"
               placeholder="Longitude"
               value={inputLongitude}
-              onChange={(e) => setInputLogintude(e.target.value)}
+              onChange={(e) => setInputLongitude(e.target.value)}
             />
           </Form.Group>
         </Col>

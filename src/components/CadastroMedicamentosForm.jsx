@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { DadosContext } from "../contexts/DadosContext";
 
 export default function CadastroMedicamentosForm() {
   const [inputMedicamento, setInputMedicamento] = useState("");
@@ -9,14 +10,9 @@ export default function CadastroMedicamentosForm() {
   const [inputTipo, setInputTipo] = useState("");
   const [inputPrecoUnitario, setInputPrecoUnitario] = useState("");
   const [inputDescricao, setInputDescricao] = useState("");
-  const [dadosMedicamentos, setDadosMedicamentos] = useState([]);
-
+  const { medicamentosLocalStorage, setMedicamentosLocalStorage } =
+    useContext(DadosContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const dadosLocalStorage = localStorage.getItem("dadosMedicamentos");
-    if (dadosLocalStorage) setDadosMedicamentos(JSON.parse(dadosLocalStorage));
-  }, []);
 
   const dadosNovoMedicamento = {
     inputMedicamento,
@@ -30,8 +26,11 @@ export default function CadastroMedicamentosForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const dadosAtualizados = [...dadosMedicamentos, dadosNovoMedicamento];
-      setDadosMedicamentos(dadosAtualizados);
+      const dadosAtualizados = [
+        ...medicamentosLocalStorage,
+        dadosNovoMedicamento,
+      ];
+      setMedicamentosLocalStorage(dadosAtualizados);
       localStorage.setItem(
         "dadosMedicamentos",
         JSON.stringify(dadosAtualizados)
