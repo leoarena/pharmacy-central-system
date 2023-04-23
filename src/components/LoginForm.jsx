@@ -39,13 +39,13 @@ export default function LoginForm() {
       </Form.Group>
 
       <div className="mt-4 d-flex justify-content-center">
-        <Button variant="outline-dark" type="submit" className="mx-1 light">
+        <Button variant="dark" type="submit" className="mx-1 border-0">
           Entrar
         </Button>
         <Button
-          variant="outline-dark"
+          variant="dark"
           type="button"
-          className="mx-1 light"
+          className="mx-1 border-0"
           onClick={() => navigate("/cadastre-se")}
         >
           Cadastrar-se
