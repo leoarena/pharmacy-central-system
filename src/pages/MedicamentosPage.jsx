@@ -4,7 +4,7 @@ import MedicamentosTable from "../components/MedicamentosTable";
 import { Button, Container } from "react-bootstrap";
 import MedicamentosCard from "../components/MedicamentosCard";
 import { H1 } from "../components/styledComponents";
-import { Provider } from "../contexts/DadosContext";
+import { ContextProvider } from "../contexts/DadosContext";
 
 export default function MedicamentosPage() {
   const [visualizacao, setVisualizacao] = useState("card");
@@ -36,9 +36,9 @@ export default function MedicamentosPage() {
         </Link>
       </div>
       {visualizacao === "tabela" ? (
-        <Provider children={<MedicamentosTable />} />
+        <ContextProvider children={<MedicamentosTable />} />
       ) : (
-        <Provider children={<MedicamentosCard />} />
+        <ContextProvider children={<MedicamentosCard />} />
       )}
     </Container>
   );

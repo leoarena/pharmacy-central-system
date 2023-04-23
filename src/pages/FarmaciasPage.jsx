@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { H1 } from "../components/styledComponents";
 import FarmaciasMap from "../components/FarmaciasMap";
-import { Provider } from "../contexts/DadosContext";
+import { ContextProvider } from "../contexts/DadosContext";
 
 export default function FarmaciasPage() {
   const [visualizacao, setVisualizacao] = useState("mapa");
@@ -36,9 +36,9 @@ export default function FarmaciasPage() {
         </Link>
       </div>
       {visualizacao === "mapa" ? (
-        <Provider children={<FarmaciasMap />} />
+        <ContextProvider children={<FarmaciasMap />} />
       ) : (
-        <Provider children={<FarmaciasTable />} />
+        <ContextProvider children={<FarmaciasTable />} />
       )}
     </Container>
   );

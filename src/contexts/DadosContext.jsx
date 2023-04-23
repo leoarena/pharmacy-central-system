@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export const DadosContext = createContext();
 
-export function Provider({ children }) {
+export function ContextProvider({ children }) {
   const empresasLocalStorage = JSON.parse(
     localStorage.getItem("dadosEmpresas")
   );
