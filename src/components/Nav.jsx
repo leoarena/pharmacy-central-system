@@ -18,12 +18,33 @@ export default function NavComponent() {
       ) : (
         <Navbar.Collapse>
           <Nav className="ms-auto">
-            <Button variant="" href="/farmacias" className="border-0">
-              Farmácias
-            </Button>
-            <Button variant="" href="/medicamentos" className="border-0">
-              Medicamentos
-            </Button>
+            {rotaAtual === "/farmacias" ? (
+              <>
+                <Button
+                  variant=""
+                  href="/farmacias"
+                  className="border-0 fw-bold"
+                >
+                  Farmácias
+                </Button>
+                <Button variant="" href="/medicamentos" className="border-0">
+                  Medicamentos
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="" href="/farmacias" className="border-0">
+                  Farmácias
+                </Button>
+                <Button
+                  variant=""
+                  href="/medicamentos"
+                  className="border-0 fw-bold"
+                >
+                  Medicamentos
+                </Button>
+              </>
+            )}
             <Button
               variant="danger"
               onClick={() => navigate("/")}
