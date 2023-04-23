@@ -12,7 +12,9 @@ export default function MedicamentosCard() {
     setMedicamentoSelecionado(indexMedicamento);
   };
 
-  return (
+  return medicamentosLocalStorage === null ? (
+    <span className="mt-5">Nenhum medicamento cadastrado ainda...</span>
+  ) : (
     <div className="d-flex flex-wrap my-4" style={{ width: "68vw" }}>
       {Object.keys(medicamentosLocalStorage).map((indexMedicamento) => {
         const medicamento = medicamentosLocalStorage[indexMedicamento];

@@ -4,7 +4,9 @@ import { DadosContext } from "../contexts/DadosContext";
 
 export default function MedicamentosTable() {
   const { medicamentosLocalStorage } = useContext(DadosContext);
-  return (
+  return medicamentosLocalStorage === null ? (
+    <span className="mt-5">Nenhum medicamento cadastrado ainda...</span>
+  ) : (
     <Table className="my-4">
       <thead>
         <tr>

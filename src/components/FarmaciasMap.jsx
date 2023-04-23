@@ -7,7 +7,9 @@ export default function FarmaciasApp() {
   const { empresasLocalStorage } = useContext(DadosContext);
   const position = [-27.597502435558525, -48.54972353282047];
 
-  return (
+  return empresasLocalStorage === null ? (
+    <span className="mt-5">Nenhuma fármacia cadastrada ainda...</span>
+  ) : (
     <MapContainer
       center={position}
       zoom={13}
