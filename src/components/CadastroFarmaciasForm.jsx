@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import ReactInputMask from "react-input-mask";
 
 export default function CadastroFarmaciasForm() {
   const [inputRazaoSocial, setInputRazaoSocial] = useState("");
@@ -120,21 +119,15 @@ export default function CadastroFarmaciasForm() {
             <Form.Label htmlFor="cnpj" className="mb-1">
               CNPJ:
             </Form.Label>
-            <ReactInputMask
-              mask="99.999.999/9999-99"
+            <Form.Control
+              type="text"
+              name="cnpj"
+              id="cnpj"
+              required
+              placeholder="CNPJ"
               value={inputCNPJ}
               onChange={(e) => setInputCNPJ(e.target.value)}
-            >
-              {() => (
-                <Form.Control
-                  type="text"
-                  name="cnpj"
-                  id="cnpj"
-                  required
-                  placeholder="CNPJ"
-                />
-              )}
-            </ReactInputMask>
+            />
           </Form.Group>
         </Col>
         <Col>
@@ -176,20 +169,14 @@ export default function CadastroFarmaciasForm() {
             <Form.Label htmlFor="telefone" className="mb-1">
               Telefone:
             </Form.Label>
-            <ReactInputMask
-              mask="+55 (99) 9999-9999"
+            <Form.Control
+              type="tel"
+              name="telefone"
+              id="telefone"
+              placeholder="Telefone"
               value={inputTelefone}
               onChange={(e) => setInputTelefone(e.target.value)}
-            >
-              {() => (
-                <Form.Control
-                  type="tel"
-                  name="telefone"
-                  id="telefone"
-                  placeholder="Telefone"
-                />
-              )}
-            </ReactInputMask>
+            />
           </Form.Group>
         </Col>
         <Col>
@@ -197,21 +184,15 @@ export default function CadastroFarmaciasForm() {
             <Form.Label htmlFor="celular" className="mb-1">
               Celular:
             </Form.Label>
-            <ReactInputMask
-              mask="+55 (99) 99999-9999"
+            <Form.Control
+              type="tel"
+              name="celular"
+              id="celular"
+              required
+              placeholder="Celular"
               value={inputCelular}
               onChange={(e) => setInputCelular(e.target.value)}
-            >
-              {() => (
-                <Form.Control
-                  type="tel"
-                  name="celular"
-                  id="celular"
-                  required
-                  placeholder="Celular"
-                />
-              )}
-            </ReactInputMask>
+            />
           </Form.Group>
         </Col>
       </Row>
@@ -222,21 +203,15 @@ export default function CadastroFarmaciasForm() {
             <Form.Label htmlFor="cep" className="mb-1">
               CEP:
             </Form.Label>
-            <ReactInputMask
-              mask="99999-999"
+            <Form.Control
+              type="text"
+              name="cep"
+              id="cep"
+              required
+              placeholder="CEP"
               value={inputCEP}
               onChange={(e) => setInputCEP(e.target.value)}
-            >
-              {() => (
-                <Form.Control
-                  type="text"
-                  name="cep"
-                  id="cep"
-                  required
-                  placeholder="CEP"
-                />
-              )}
-            </ReactInputMask>
+            />
           </Form.Group>
         </Col>
         <Col>
