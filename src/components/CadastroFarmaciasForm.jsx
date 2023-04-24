@@ -19,8 +19,7 @@ export default function CadastroFarmaciasForm() {
   const [inputEstado, setInputEstado] = useState("");
   const [inputLatitude, setInputLatitude] = useState("");
   const [inputLongitude, setInputLongitude] = useState("");
-  const { empresasLocalStorage, setEmpresasLocalStorage } =
-    useContext(DadosContext);
+  const { cadastrarEmpresa } = useContext(DadosContext);
   const navigate = useNavigate();
 
   const dadosNovaEmpresa = {
@@ -44,10 +43,7 @@ export default function CadastroFarmaciasForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const dadosAtualizados = [...empresasLocalStorage, dadosNovaEmpresa];
-      setEmpresasLocalStorage(dadosAtualizados);
-      localStorage.setItem("dadosEmpresas", JSON.stringify(dadosAtualizados));
-      alert("Empresa cadastrada com sucesso!");
+      cadastrarEmpresa(dadosNovaEmpresa);
       limparInputs();
       navigate("/farmacias");
     } catch (error) {

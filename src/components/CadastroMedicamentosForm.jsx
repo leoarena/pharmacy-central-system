@@ -10,8 +10,7 @@ export default function CadastroMedicamentosForm() {
   const [inputTipo, setInputTipo] = useState("");
   const [inputPrecoUnitario, setInputPrecoUnitario] = useState("");
   const [inputDescricao, setInputDescricao] = useState("");
-  const { medicamentosLocalStorage, setMedicamentosLocalStorage } =
-    useContext(DadosContext);
+  const { cadastrarMedicamento } = useContext(DadosContext);
   const navigate = useNavigate();
 
   const dadosNovoMedicamento = {
@@ -26,16 +25,7 @@ export default function CadastroMedicamentosForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const dadosAtualizados = [
-        ...medicamentosLocalStorage,
-        dadosNovoMedicamento,
-      ];
-      setMedicamentosLocalStorage(dadosAtualizados);
-      localStorage.setItem(
-        "dadosMedicamentos",
-        JSON.stringify(dadosAtualizados)
-      );
-      alert("Medicamento cadastrado com sucesso!");
+      cadastrarMedicamento(dadosNovoMedicamento);
       limparInputs();
       navigate("/medicamentos");
     } catch (error) {

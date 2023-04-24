@@ -50,15 +50,6 @@ export default function FarmaciasTable() {
                   Ver mais
                 </Button>
               </td>
-              <td className="p-0 text-center align-middle">
-                <Button
-                  size="sm"
-                  variant="danger"
-                  onClick={() => removerEmpresa(indexEmpresa)}
-                >
-                  Remover
-                </Button>
-              </td>
 
               {empresaSelecionada === indexEmpresa && (
                 <Modal show={true} onHide={() => setEmpresaSelecionada(null)}>
@@ -118,6 +109,12 @@ export default function FarmaciasTable() {
                     </ListGroup>
                   </Modal.Body>
                   <Modal.Footer>
+                    <Button
+                      variant="danger"
+                      onClick={() => removerEmpresa(indexEmpresa)}
+                    >
+                      Remover
+                    </Button>
                     <Button onClick={() => setMedicamentoSelecionado(null)}>
                       Fechar
                     </Button>
