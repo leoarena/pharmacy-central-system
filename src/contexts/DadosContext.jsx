@@ -4,10 +4,10 @@ export const DadosContext = createContext();
 
 export function ContextProvider({ children }) {
   const [medicamentosLocalStorage, setMedicamentosLocalStorage] = useState(
-    JSON.parse(localStorage.getItem("dadosMedicamentos"))
+    JSON.parse(localStorage.getItem("dadosMedicamentos")) || []
   );
   const [empresasLocalStorage, setEmpresasLocalStorage] = useState(
-    JSON.parse(localStorage.getItem("dadosEmpresas"))
+    JSON.parse(localStorage.getItem("dadosEmpresas")) || []
   );
 
   return (
