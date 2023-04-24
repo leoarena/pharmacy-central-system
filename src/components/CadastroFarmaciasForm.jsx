@@ -69,6 +69,38 @@ export default function CadastroFarmaciasForm() {
     setInputEstado(objeto.uf);
   };
 
+  const buscarCoordenadas = () => {
+    if (
+      inputCEP !== "" &&
+      inputLogradouro !== "" &&
+      inputNumero !== "" &&
+      inputBairro !== "" &&
+      inputCidade !== "" &&
+      inputEstado !== ""
+    ) {
+      const endereco = `${inputLogradouro}, ${inputNumero}, ${inputCidade}, ${inputEstado}`;
+      const enderecoFormatado = encodeURIComponent(endereco);
+      fetch(
+        `https://nominatim.openstreetmap.org/search?q=${enderecoFormatado}&format=json`
+      )
+        .then(console.log("chamada na API"))
+        .then((resposta) => resposta.json())
+        .then((objetoResposta) => inputsCoorenadas(objetoResposta))
+        .catch((error) => console.log(error));
+    }
+  };
+
+  const inputsCoorenadas = (objeto) => {
+    setInputLatitude(objeto[0].lat);
+    setInputLongitude(objeto[0].lon);
+  };
+
+  const chamadaComDelay = () => {
+    setTimeout(() => {
+      buscarCoordenadas();
+    }, 200);
+  };
+
   const limparInputs = () => {
     setInputRazaoSocial("");
     setInputCNPJ("");
@@ -235,6 +267,7 @@ export default function CadastroFarmaciasForm() {
               placeholder="Número"
               value={inputNumero}
               onChange={(e) => setInputNumero(e.target.value)}
+              onBlur={chamadaComDelay}
             />
           </Form.Group>
         </Col>
@@ -315,6 +348,7 @@ export default function CadastroFarmaciasForm() {
               name="latitude"
               id="latitude"
               placeholder="Latitude"
+              required
               value={inputLatitude}
               onChange={(e) => setInputLatitude(e.target.value)}
             />
@@ -330,6 +364,7 @@ export default function CadastroFarmaciasForm() {
               name="longitude"
               id="longitude"
               placeholder="Longitude"
+              required
               value={inputLongitude}
               onChange={(e) => setInputLongitude(e.target.value)}
             />
