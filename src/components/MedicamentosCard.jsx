@@ -63,9 +63,11 @@ export default function MedicamentosCard() {
                       <ListGroupItem>
                         Preço Unitário: {medicamento.inputPrecoUnitario}
                       </ListGroupItem>
-                      <ListGroupItem>
-                        Descrição: {medicamento.inputDescricao}
-                      </ListGroupItem>
+                      {medicamento.inputDescricao !== "" && (
+                        <ListGroupItem>
+                          Descrição: {medicamento.inputDescricao}
+                        </ListGroupItem>
+                      )}
                     </ListGroup>
                   </Modal.Body>
                   <Modal.Footer>

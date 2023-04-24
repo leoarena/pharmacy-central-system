@@ -1,10 +1,21 @@
-import { useContext } from "react";
-import { Button, Table } from "react-bootstrap";
+import { useContext, useState } from "react";
+import {
+  Button,
+  ListGroup,
+  ListGroupItem,
+  Modal,
+  Table,
+} from "react-bootstrap";
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function MedicamentosTable() {
   const { medicamentosLocalStorage, removerMedicamento } =
     useContext(DadosContext);
+  const [medicamentoSelecionado, setMedicamentoSelecionado] = useState(null);
+
+  const botaoModal = (indexMedicamento) => {
+    setMedicamentoSelecionado(indexMedicamento);
+  };
 
   return medicamentosLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhum medicamento cadastrado ainda...</span>
@@ -33,14 +44,56 @@ export default function MedicamentosTable() {
               <td>{medicamento.inputPrecoUnitario}</td>
               <td>{medicamento.inputDescricao}</td>
               <td className="p-0 text-center align-middle">
-                <Button
-                  size="sm"
-                  variant="danger"
-                  onClick={() => removerMedicamento(indexMedicamento)}
-                >
-                  Remover
+                <Button size="sm" onClick={() => botaoModal(indexMedicamento)}>
+                  Ver mais
                 </Button>
               </td>
+
+              {medicamentoSelecionado === indexMedicamento && (
+                <Modal
+                  show={true}
+                  onHide={() => setMedicamentoSelecionado(null)}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>Informações completas</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <ListGroup>
+                      <ListGroupItem>
+                        Medicamento: {medicamento.inputMedicamento}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Laboratório: {medicamento.inputLaboratorio}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Dosagem: {medicamento.inputDosagem}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Tipo: {medicamento.inputTipo}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Preço Unitário: {medicamento.inputPrecoUnitario}
+                      </ListGroupItem>
+                      {medicamento.inputDescricao !== "" && (
+                        <ListGroupItem>
+                          Descrição: {medicamento.inputDescricao}
+                        </ListGroupItem>
+                      )}
+                    </ListGroup>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      variant="danger"
+                      onClick={() => removerMedicamento(indexMedicamento)}
+                    >
+                      Remover
+                    </Button>
+                    <Button onClick={() => setMedicamentoSelecionado(null)}>
+                      Fechar
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              )}
             </tr>
           );
         })}

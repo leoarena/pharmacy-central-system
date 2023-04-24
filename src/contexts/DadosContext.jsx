@@ -36,13 +36,13 @@ export function ContextProvider({ children }) {
     localStorage.setItem("dadosMedicamentos", JSON.stringify(dadosAtualizados));
     alert("Medicamento cadastrado com sucesso!");
   };
-  const removerMedicamento = (indexEmpresa) => {
+  const removerMedicamento = (indexMedicamento) => {
     const confirmacao = window.confirm(
       "Tem certeza que deseja remover este item?"
     );
     if (confirmacao) {
-      const dadosAtualizados = [...empresasLocalStorage];
-      dadosAtualizados.splice(indexEmpresa, 1);
+      const dadosAtualizados = [...medicamentosLocalStorage];
+      dadosAtualizados.splice(indexMedicamento, 1);
       setMedicamentosLocalStorage(dadosAtualizados);
       localStorage.setItem(
         "dadosMedicamentos",

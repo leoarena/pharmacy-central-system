@@ -28,9 +28,7 @@ export default function FarmaciasTable() {
           <th>Email</th>
           <th>Telefone</th>
           <th>Celular</th>
-          <th colSpan={2} className="text-center">
-            Ações
-          </th>
+          <th className="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
