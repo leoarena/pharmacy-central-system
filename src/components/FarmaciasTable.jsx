@@ -16,7 +16,7 @@ export default function FarmaciasTable() {
     setEmpresaSelecionada(indexEmpresa);
   };
 
-  return empresasLocalStorage === null ? (
+  return empresasLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhuma fármacia cadastrada ainda...</span>
   ) : (
     <Table className="my-4">

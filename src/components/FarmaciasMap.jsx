@@ -7,7 +7,7 @@ export default function FarmaciasApp() {
   const { empresasLocalStorage } = useContext(DadosContext);
   const position = [-27.597502435558525, -48.54972353282047];
 
-  return empresasLocalStorage === null ? (
+  return empresasLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhuma fármacia cadastrada ainda...</span>
   ) : (
     <MapContainer
@@ -21,7 +21,10 @@ export default function FarmaciasApp() {
         const empresa = empresasLocalStorage[indexEmpresa];
         if (empresa.inputLatitude && empresa.inputLongitude) {
           return (
-            <Marker position={[empresa.inputLatitude, empresa.inputLongitude]}>
+            <Marker
+              position={[empresa.inputLatitude, empresa.inputLongitude]}
+              key={indexEmpresa}
+            >
               <Popup>
                 <b>Razão Social:</b> {empresa.inputRazaoSocial} <br />
                 <b>CNPJ:</b> {empresa.inputCNPJ} <br />
