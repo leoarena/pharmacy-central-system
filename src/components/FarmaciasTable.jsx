@@ -9,7 +9,7 @@ import {
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function FarmaciasTable() {
-  const { empresasLocalStorage } = useContext(DadosContext);
+  const { empresasLocalStorage, removerEmpresa } = useContext(DadosContext);
   const [empresaSelecionada, setEmpresaSelecionada] = useState(null);
 
   const botaoModal = (indexEmpresa) => {
@@ -28,6 +28,9 @@ export default function FarmaciasTable() {
           <th>Email</th>
           <th>Telefone</th>
           <th>Celular</th>
+          <th colSpan={2} className="text-center">
+            Ações
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -42,9 +45,18 @@ export default function FarmaciasTable() {
               <td>{empresa.inputEmail}</td>
               <td>{empresa.inputTelefone}</td>
               <td>{empresa.inputCelular}</td>
-              <td>
-                <Button onClick={() => botaoModal(indexEmpresa)}>
+              <td className="p-0 text-center align-middle">
+                <Button size="sm" onClick={() => botaoModal(indexEmpresa)}>
                   Ver mais
+                </Button>
+              </td>
+              <td className="p-0 text-center align-middle">
+                <Button
+                  size="sm"
+                  variant="danger"
+                  onClick={() => removerEmpresa(indexEmpresa)}
+                >
+                  Remover
                 </Button>
               </td>
 

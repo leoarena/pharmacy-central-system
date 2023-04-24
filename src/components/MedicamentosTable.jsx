@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function MedicamentosTable() {
-  const { medicamentosLocalStorage } = useContext(DadosContext);
+  const { medicamentosLocalStorage, removerMedicamento } =
+    useContext(DadosContext);
+
   return medicamentosLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhum medicamento cadastrado ainda...</span>
   ) : (
@@ -16,6 +18,7 @@ export default function MedicamentosTable() {
           <th>Tipo</th>
           <th>Preço Unitário</th>
           <th>Descrição</th>
+          <th className="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +32,15 @@ export default function MedicamentosTable() {
               <td>{medicamento.inputTipo}</td>
               <td>{medicamento.inputPrecoUnitario}</td>
               <td>{medicamento.inputDescricao}</td>
+              <td className="p-0 text-center align-middle">
+                <Button
+                  size="sm"
+                  variant="danger"
+                  onClick={() => removerMedicamento(indexMedicamento)}
+                >
+                  Remover
+                </Button>
+              </td>
             </tr>
           );
         })}

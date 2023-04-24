@@ -5,7 +5,8 @@ import { useContext, useState } from "react";
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function MedicamentosCard() {
-  const { medicamentosLocalStorage } = useContext(DadosContext);
+  const { medicamentosLocalStorage, removerMedicamento } =
+    useContext(DadosContext);
   const [medicamentoSelecionado, setMedicamentoSelecionado] = useState(null);
 
   const botaoModal = (indexMedicamento) => {
@@ -68,6 +69,12 @@ export default function MedicamentosCard() {
                     </ListGroup>
                   </Modal.Body>
                   <Modal.Footer>
+                    <Button
+                      variant="danger"
+                      onClick={() => removerMedicamento(indexMedicamento)}
+                    >
+                      Remover
+                    </Button>
                     <Button onClick={() => setMedicamentoSelecionado(null)}>
                       Fechar
                     </Button>
