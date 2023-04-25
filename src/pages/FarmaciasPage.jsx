@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
-import FarmaciasTable from "../components/FarmaciasTable";
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
-import FarmaciasMap from "../components/FarmaciasMap";
 import { ContextProvider } from "../contexts/DadosContext";
+import FarmaciasMap from "../components/FarmaciasMap";
+import FarmaciasTable from "../components/FarmaciasTable";
 
 export default function FarmaciasPage() {
   const [visualizacao, setVisualizacao] = useState("mapa");
@@ -28,11 +27,9 @@ export default function FarmaciasPage() {
             ? "Visualizar como tabela"
             : "Visualizar como mapa"}
         </Button>
-        <Link to="/cadastro-farmacia">
-          <Button variant="success" className="m-1">
-            Cadastrar nova farmácia
-          </Button>
-        </Link>
+        <Button variant="success" className="m-1" href="/cadastro-farmacia">
+          Cadastrar nova farmácia
+        </Button>
       </div>
       {visualizacao === "mapa" ? (
         <ContextProvider children={<FarmaciasMap />} />

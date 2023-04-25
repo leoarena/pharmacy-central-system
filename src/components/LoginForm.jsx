@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 export default function LoginForm() {
   const navigate = useNavigate();

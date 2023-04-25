@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import {
+  Table,
   Button,
+  Modal,
   ListGroup,
   ListGroupItem,
-  Modal,
-  Table,
 } from "react-bootstrap";
 import { DadosContext } from "../contexts/DadosContext";
 
@@ -48,7 +48,6 @@ export default function FarmaciasTable() {
                   Ver mais
                 </Button>
               </td>
-
               {empresaSelecionada === indexEmpresa && (
                 <Modal show={true} onHide={() => setEmpresaSelecionada(null)}>
                   <Modal.Header closeButton>
@@ -93,7 +92,6 @@ export default function FarmaciasTable() {
                           Complemento: {empresa.inputComplemento}
                         </ListGroupItem>
                       )}
-
                       {empresa.inputLatitude !== "" && (
                         <ListGroupItem>
                           Latitude: {empresa.inputLatitude}
@@ -113,7 +111,10 @@ export default function FarmaciasTable() {
                     >
                       Remover
                     </Button>
-                    <Button onClick={() => setMedicamentoSelecionado(null)}>
+                    <Button
+                      variant="dark"
+                      onClick={() => setEmpresaSelecionada(null)}
+                    >
                       Fechar
                     </Button>
                   </Modal.Footer>
