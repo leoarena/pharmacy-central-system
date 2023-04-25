@@ -33,8 +33,8 @@ export default function LoginForm() {
           name="senha"
           id="senha"
           placeholder="Insira sua senha"
-          minLength={8}
           required
+          minLength={8}
         />
       </Form.Group>
 
