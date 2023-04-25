@@ -3,6 +3,12 @@ import { createContext, useState } from "react";
 export const DadosContext = createContext();
 
 export function ContextProvider({ children }) {
+  const [itemSelecionado, setItemSelecionado] = useState(null);
+
+  const botaoModal = (indexItem) => {
+    setItemSelecionado(indexItem);
+  };
+
   const [empresasLocalStorage, setEmpresasLocalStorage] = useState(
     JSON.parse(localStorage.getItem("dadosEmpresas")) || []
   );
@@ -21,6 +27,7 @@ export function ContextProvider({ children }) {
       dadosAtualizados.splice(indexEmpresa, 1);
       setEmpresasLocalStorage(dadosAtualizados);
       localStorage.setItem("dadosEmpresas", JSON.stringify(dadosAtualizados));
+      setItemSelecionado(null);
     }
   };
 
@@ -54,6 +61,9 @@ export function ContextProvider({ children }) {
   return (
     <DadosContext.Provider
       value={{
+        itemSelecionado,
+        botaoModal,
+        setItemSelecionado,
         empresasLocalStorage,
         setEmpresasLocalStorage,
         cadastrarEmpresa,

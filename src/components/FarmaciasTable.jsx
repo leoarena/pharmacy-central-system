@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {
   Table,
   Button,
@@ -9,12 +9,13 @@ import {
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function FarmaciasTable() {
-  const { empresasLocalStorage, removerEmpresa } = useContext(DadosContext);
-  const [empresaSelecionada, setEmpresaSelecionada] = useState(null);
-
-  const botaoModal = (indexEmpresa) => {
-    setEmpresaSelecionada(indexEmpresa);
-  };
+  const {
+    empresasLocalStorage,
+    botaoModal,
+    itemSelecionado,
+    setItemSelecionado,
+    removerEmpresa,
+  } = useContext(DadosContext);
 
   return empresasLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhuma fármacia cadastrada ainda...</span>
@@ -48,8 +49,8 @@ export default function FarmaciasTable() {
                   Ver mais
                 </Button>
               </td>
-              {empresaSelecionada === indexEmpresa && (
-                <Modal show={true} onHide={() => setEmpresaSelecionada(null)}>
+              {itemSelecionado === indexEmpresa && (
+                <Modal show={true} onHide={() => setItemSelecionado(null)}>
                   <Modal.Header closeButton>
                     <Modal.Title>Informações completas</Modal.Title>
                   </Modal.Header>
@@ -113,7 +114,7 @@ export default function FarmaciasTable() {
                     </Button>
                     <Button
                       variant="dark"
-                      onClick={() => setEmpresaSelecionada(null)}
+                      onClick={() => setItemSelecionado(null)}
                     >
                       Fechar
                     </Button>
