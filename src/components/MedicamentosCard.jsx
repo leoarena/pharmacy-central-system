@@ -1,17 +1,17 @@
-import { Button, Card, ListGroup, ListGroupItem, Modal } from "react-bootstrap";
+import { Card, Button, Modal, ListGroup, ListGroupItem } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function MedicamentosCard() {
-  const { medicamentosLocalStorage, removerMedicamento } =
-    useContext(DadosContext);
-  const [medicamentoSelecionado, setMedicamentoSelecionado] = useState(null);
-
-  const botaoModal = (indexMedicamento) => {
-    setMedicamentoSelecionado(indexMedicamento);
-  };
+  const {
+    medicamentosLocalStorage,
+    botaoModal,
+    itemSelecionado,
+    setItemSelecionado,
+    removerMedicamento,
+  } = useContext(DadosContext);
 
   return medicamentosLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhum medicamento cadastrado ainda...</span>
@@ -32,11 +32,8 @@ export default function MedicamentosCard() {
               <Button onClick={() => botaoModal(indexMedicamento)}>
                 Ver mais
               </Button>
-              {medicamentoSelecionado === indexMedicamento && (
-                <Modal
-                  show={true}
-                  onHide={() => setMedicamentoSelecionado(null)}
-                >
+              {itemSelecionado === indexMedicamento && (
+                <Modal show={true} onHide={() => setItemSelecionado(null)}>
                   <Modal.Header closeButton>
                     <Modal.Title>Informações completas</Modal.Title>
                   </Modal.Header>
@@ -77,7 +74,10 @@ export default function MedicamentosCard() {
                     >
                       Remover
                     </Button>
-                    <Button onClick={() => setMedicamentoSelecionado(null)}>
+                    <Button
+                      variant="dark"
+                      onClick={() => setItemSelecionado(null)}
+                    >
                       Fechar
                     </Button>
                   </Modal.Footer>
