@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Container, Button } from "react-bootstrap";
 import { ContextProvider } from "../contexts/DadosContext";
 import FarmaciasMap from "../components/FarmaciasMap";
 import FarmaciasTable from "../components/FarmaciasTable";

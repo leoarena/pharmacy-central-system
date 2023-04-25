@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import MedicamentosTable from "../components/MedicamentosTable";
-import { Button, Container } from "react-bootstrap";
-import MedicamentosCard from "../components/MedicamentosCard";
+import { useState, useEffect } from "react";
+import { Container, Button } from "react-bootstrap";
 import { ContextProvider } from "../contexts/DadosContext";
+import MedicamentosCard from "../components/MedicamentosCard";
+import MedicamentosTable from "../components/MedicamentosTable";
 
 export default function MedicamentosPage() {
   const [visualizacao, setVisualizacao] = useState("card");
@@ -28,16 +27,14 @@ export default function MedicamentosPage() {
             ? "Visualizar como card"
             : "Visualizar como tabela"}
         </Button>
-        <Link to="/cadastro-medicamento">
-          <Button variant="success" className="m-1">
-            Cadastrar novo medicamento
-          </Button>
-        </Link>
+        <Button variant="success" className="m-1" href="/cadastro-medicamento">
+          Cadastrar novo medicamento
+        </Button>
       </div>
-      {visualizacao === "tabela" ? (
-        <ContextProvider children={<MedicamentosTable />} />
-      ) : (
+      {visualizacao === "card" ? (
         <ContextProvider children={<MedicamentosCard />} />
+      ) : (
+        <ContextProvider children={<MedicamentosTable />} />
       )}
     </Container>
   );
