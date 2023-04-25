@@ -67,10 +67,10 @@ export default function MedicamentosTable() {
                         Tipo: {medicamento.inputTipo}
                       </ListGroupItem>
                       <ListGroupItem>
-                        Preço Unitário: {medicamento.inputPrecoUnitario}
+                        Preço Unitário: R${medicamento.inputPrecoUnitario}
                       </ListGroupItem>
                       {medicamento.inputDescricao !== "" && (
-                        <ListGroupItem>
+                        <ListGroupItem className="text-break">
                           Descrição: {medicamento.inputDescricao}
                         </ListGroupItem>
                       )}
