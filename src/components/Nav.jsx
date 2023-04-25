@@ -1,7 +1,7 @@
+import { useLocation, useNavigate } from "react-router-dom";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Button, Nav, Navbar } from "react-bootstrap";
 
 export default function NavComponent() {
   const { pathname: rotaAtual } = useLocation();
@@ -9,7 +9,7 @@ export default function NavComponent() {
 
   return (
     <Navbar className="skyblue" expand="lg" style={{ height: "45px" }}>
-      {rotaAtual === "/" ? (
+      {rotaAtual === "/" && (
         <>
           <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
           <span>Pharmacy Central System</span>
@@ -17,7 +17,9 @@ export default function NavComponent() {
             <span className="me-2">Login</span>
           </div>
         </>
-      ) : (
+      )}
+
+      {rotaAtual !== "/" && (
         <>
           <Nav.Link href="/farmacias" className="d-flex align-items-center">
             <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
