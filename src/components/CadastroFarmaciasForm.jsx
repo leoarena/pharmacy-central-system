@@ -63,10 +63,10 @@ export default function CadastroFarmaciasForm() {
   };
 
   const inputsEndereco = (objeto) => {
-    setInputLogradouro(objeto.logradouro);
-    setInputBairro(objeto.bairro);
-    setInputCidade(objeto.localidade);
-    setInputEstado(objeto.uf);
+    setInputLogradouro(objeto.logradouro || "");
+    setInputBairro(objeto.bairro || "");
+    setInputCidade(objeto.localidade || "");
+    setInputEstado(objeto.uf || "");
   };
 
   const buscarCoordenadas = () => {
@@ -83,7 +83,6 @@ export default function CadastroFarmaciasForm() {
       fetch(
         `https://nominatim.openstreetmap.org/search?q=${enderecoFormatado}&format=json`
       )
-        .then(console.log("chamada na API"))
         .then((resposta) => resposta.json())
         .then((objetoResposta) => inputsCoorenadas(objetoResposta))
         .catch((error) => console.log(error));
@@ -119,6 +118,16 @@ export default function CadastroFarmaciasForm() {
     setInputLongitude("");
   };
 
+  const handleInputCNPJ = (e) => {
+    const valor = e.target.value.slice(0, 14);
+    setInputCNPJ(valor);
+  };
+
+  const handleInputCEP = (e) => {
+    const valor = e.target.value.slice(0, 8);
+    setInputCEP(valor);
+  };
+
   return (
     <Form onSubmit={handleSubmit} className="skyblue p-2 rounded">
       <Row className="mb-2">
@@ -150,7 +159,7 @@ export default function CadastroFarmaciasForm() {
               required
               placeholder="CNPJ"
               value={inputCNPJ}
-              onChange={(e) => setInputCNPJ(e.target.value)}
+              onChange={handleInputCNPJ}
             />
           </Form.Group>
         </Col>
@@ -228,13 +237,13 @@ export default function CadastroFarmaciasForm() {
               CEP:
             </Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               name="cep"
               id="cep"
               required
               placeholder="CEP"
               value={inputCEP}
-              onChange={(e) => setInputCEP(e.target.value)}
+              onChange={handleInputCEP}
             />
           </Form.Group>
         </Col>
