@@ -1,21 +1,21 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {
+  Table,
   Button,
+  Modal,
   ListGroup,
   ListGroupItem,
-  Modal,
-  Table,
 } from "react-bootstrap";
 import { DadosContext } from "../contexts/DadosContext";
 
 export default function MedicamentosTable() {
-  const { medicamentosLocalStorage, removerMedicamento } =
-    useContext(DadosContext);
-  const [medicamentoSelecionado, setMedicamentoSelecionado] = useState(null);
-
-  const botaoModal = (indexMedicamento) => {
-    setMedicamentoSelecionado(indexMedicamento);
-  };
+  const {
+    medicamentosLocalStorage,
+    botaoModal,
+    itemSelecionado,
+    setItemSelecionado,
+    removerMedicamento,
+  } = useContext(DadosContext);
 
   return medicamentosLocalStorage.length === 0 ? (
     <span className="mt-5">Nenhum medicamento cadastrado ainda...</span>
@@ -49,11 +49,8 @@ export default function MedicamentosTable() {
                 </Button>
               </td>
 
-              {medicamentoSelecionado === indexMedicamento && (
-                <Modal
-                  show={true}
-                  onHide={() => setMedicamentoSelecionado(null)}
-                >
+              {itemSelecionado === indexMedicamento && (
+                <Modal show={true} onHide={() => setItemSelecionado(null)}>
                   <Modal.Header closeButton>
                     <Modal.Title>Informações completas</Modal.Title>
                   </Modal.Header>
@@ -88,7 +85,7 @@ export default function MedicamentosTable() {
                     >
                       Remover
                     </Button>
-                    <Button onClick={() => setMedicamentoSelecionado(null)}>
+                    <Button onClick={() => setItemSelecionado(null)}>
                       Fechar
                     </Button>
                   </Modal.Footer>

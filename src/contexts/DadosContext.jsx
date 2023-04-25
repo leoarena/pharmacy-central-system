@@ -55,6 +55,7 @@ export function ContextProvider({ children }) {
         "dadosMedicamentos",
         JSON.stringify(dadosAtualizados)
       );
+      setItemSelecionado(null);
     }
   };
 
