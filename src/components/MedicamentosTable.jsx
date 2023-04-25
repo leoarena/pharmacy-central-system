@@ -85,7 +85,10 @@ export default function MedicamentosTable() {
                     >
                       Remover
                     </Button>
-                    <Button onClick={() => setItemSelecionado(null)}>
+                    <Button
+                      variant="dark"
+                      onClick={() => setItemSelecionado(null)}
+                    >
                       Fechar
                     </Button>
                   </Modal.Footer>
