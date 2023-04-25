@@ -28,7 +28,6 @@ export default function MedicamentosTable() {
           <th>Dosagem</th>
           <th>Tipo</th>
           <th>Preço Unitário</th>
-          <th>Descrição</th>
           <th className="text-center">Ações</th>
         </tr>
       </thead>
@@ -41,8 +40,7 @@ export default function MedicamentosTable() {
               <td>{medicamento.inputLaboratorio}</td>
               <td>{medicamento.inputDosagem}</td>
               <td>{medicamento.inputTipo}</td>
-              <td>{medicamento.inputPrecoUnitario}</td>
-              <td>{medicamento.inputDescricao}</td>
+              <td>R${medicamento.inputPrecoUnitario}</td>
               <td className="p-0 text-center align-middle">
                 <Button size="sm" onClick={() => botaoModal(indexMedicamento)}>
                   Ver mais
@@ -84,12 +82,6 @@ export default function MedicamentosTable() {
                       onClick={() => removerMedicamento(indexMedicamento)}
                     >
                       Remover
-                    </Button>
-                    <Button
-                      variant="dark"
-                      onClick={() => setItemSelecionado(null)}
-                    >
-                      Fechar
                     </Button>
                   </Modal.Footer>
                 </Modal>

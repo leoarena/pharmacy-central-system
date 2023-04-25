@@ -108,8 +108,8 @@ export default function CadastroMedicamentosForm() {
               onChange={(e) => setInputTipo(e.target.value)}
             >
               <option value="">Selecione</option>
-              <option value="controlado">Medicamento Controlado</option>
-              <option value="comum">Medicamento Comum</option>
+              <option value="Controlado">Medicamento Controlado</option>
+              <option value="Comum">Medicamento Comum</option>
             </Form.Select>
           </Form.Group>
         </Col>

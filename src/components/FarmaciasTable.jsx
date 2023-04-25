@@ -112,12 +112,6 @@ export default function FarmaciasTable() {
                     >
                       Remover
                     </Button>
-                    <Button
-                      variant="dark"
-                      onClick={() => setItemSelecionado(null)}
-                    >
-                      Fechar
-                    </Button>
                   </Modal.Footer>
                 </Modal>
               )}
