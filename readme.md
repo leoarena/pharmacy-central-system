@@ -1,17 +1,17 @@
-#Pharmacy Central System
+# Pharmacy Central System
 
 O Pharmacy Central System é uma excelente solução para catalogar unidades da sua farmácia e medicamentos, através de uma aplicação leve que roda no seu navegador.
 
 ![screenshot da aplicação](public/screenshot.png)
 
-##Como executar
+## Como executar
 
 1. Faça o download ou clone do repositório através do GitHub.
 2. Dentro da pasta raiz do repositório, execute o comando `npm i` para instalar todas as dependências.
 3. Após instalar as dependências, você pode executar a aplicação em modo de desenvolvimento usando o comando `npm run dev` dentro da mesma pasta.
-4. Acesse http://localhost:5173/.
+4. Acesse http://localhost:5173/ no seu navegador.
 
-##Tecnologias
+## Tecnologias
 
 - O Pharmacy Central System foi criado a partir do Vite com a biblioteca React usando a linguagem JavaScript.
 - A estilização foi feita em sua maioria utilizando a biblioteca React-Bootstrap.
@@ -21,6 +21,6 @@ O Pharmacy Central System é uma excelente solução para catalogar unidades da 
 - Os dados sobre os CEPs são puxados através da API do ViaCEP e as coordenadas através da API do OpenStreetMap.
 - Todos os dados são armazenados no Local Storage.
 
-##Sobre o Pharmacy Central System
+## Sobre o Pharmacy Central System
 
 Ainda é uma versão bastante inicial do projeto portanto muitas funcionalidades e melhorias ainda podem ser adicionadas, principalmente nos formulários, visualização dos dados e estilização em geral.
