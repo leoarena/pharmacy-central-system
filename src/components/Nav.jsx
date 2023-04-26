@@ -1,58 +1,71 @@
-import { FaClinicMedical } from "react-icons/fa";
-import { SCNav } from "./styledComponents";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Navbar, Nav, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
 
-export default function Nav() {
-  const [navRightButtons, setnavRightButtons] = useState("nav-right");
-  const [navRightLogin, setNavRightLogin] = useState("display-none");
-  const [link, setLink] = useState(true);
-
-  const location = useLocation();
-  const currentLocation = location.pathname;
-
-  useEffect(() => {
-    if (currentLocation === "/login") {
-      setnavRightButtons("display-none");
-      setNavRightLogin("nav-right");
-      setLink(false);
-    }
-  }, []);
+export default function NavComponent() {
+  const { pathname: rotaAtual } = useLocation();
+  const navigate = useNavigate();
 
   return (
-    <SCNav>
-      {link ? (
-        <Link to="/farmacias" className="link">
-          <div className="nav-left">
-            <div className="icon">
-              <FaClinicMedical />
-            </div>
-            <span>Pharmacy Central System</span>
-          </div>
-        </Link>
-      ) : (
-        <div className="nav-left">
-          <div className="icon">
-            <FaClinicMedical />
-          </div>
+    <Navbar className="skyblue" expand="lg" style={{ height: "45px" }}>
+      {rotaAtual === "/" && (
+        <>
+          <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
           <span>Pharmacy Central System</span>
-        </div>
+          <div className="ms-auto">
+            <span className="me-2">Login</span>
+          </div>
+        </>
       )}
 
-      <div className={navRightLogin}>
-        <span>Login</span>
-      </div>
-      <div className={navRightButtons}>
-        <Link to="/farmacias">
-          <button className="nav-buttons">Farmácias</button>
-        </Link>
-        <Link to="/medicamentos">
-          <button className="nav-buttons">Medicamentos</button>
-        </Link>
-        <Link to="/login">
-          <button className="nav-buttons sair-button">Sair</button>
-        </Link>
-      </div>
-    </SCNav>
+      {rotaAtual !== "/" && (
+        <>
+          <Nav.Link href="/farmacias" className="d-flex align-items-center">
+            <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
+            <span>Pharmacy Central System</span>
+          </Nav.Link>
+          <Navbar.Collapse>
+            <Nav className="ms-auto">
+              {rotaAtual === "/farmacias" ||
+              rotaAtual === "/cadastro-farmacia" ? (
+                <>
+                  <Button
+                    variant=""
+                    href="/farmacias"
+                    className="border-0 fw-bold"
+                  >
+                    Farmácias
+                  </Button>
+                  <Button variant="" href="/medicamentos" className="border-0">
+                    Medicamentos
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="" href="/farmacias" className="border-0">
+                    Farmácias
+                  </Button>
+                  <Button
+                    variant=""
+                    href="/medicamentos"
+                    className="border-0 fw-bold"
+                  >
+                    Medicamentos
+                  </Button>
+                </>
+              )}
+              <Button
+                variant="danger"
+                onClick={() => navigate("/")}
+                className="me-1 border-dark"
+              >
+                Sair
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </>
+      )}
+    </Navbar>
   );
 }

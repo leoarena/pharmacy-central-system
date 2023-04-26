@@ -3,3 +3,19 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.skyblue {
+  background-color: skyblue;
+}
+
+.link-login {
+  text-decoration: none;
+}
+.link-login:hover {
+  text-decoration: underline;
+}
+
+.leaflet-container {
+  width: 700px;
+  height: 400px;
+}

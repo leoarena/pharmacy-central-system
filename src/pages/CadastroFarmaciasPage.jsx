@@ -1,13 +1,17 @@
+import { Container } from "react-bootstrap";
 import CadastroFarmaciasForm from "../components/CadastroFarmaciasForm";
-import Nav from "../components/Nav";
-import { SCCadastroFarmaciasPage } from "../components/styledComponents";
+import { useEffect } from "react";
+import { ContextProvider } from "../contexts/DadosContext";
 
 export default function CadastroFarmaciasPage() {
+  useEffect(() => {
+    document.title = "Cadastro de Farmácias";
+  }, []);
+
   return (
-    <SCCadastroFarmaciasPage>
-      <Nav />
-      <h1>Cadastro de nova Farmácia</h1>
-      <CadastroFarmaciasForm />
-    </SCCadastroFarmaciasPage>
+    <Container className="d-flex flex-column align-items-center">
+      <h1 style={{ margin: "5vh 0" }}>Cadastro de nova Farmácia</h1>
+      <ContextProvider children={<CadastroFarmaciasForm />} />
+    </Container>
   );
 }
