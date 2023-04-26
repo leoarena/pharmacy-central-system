@@ -2,6 +2,8 @@
 
 O Pharmacy Central System é uma excelente solução para catalogar unidades da sua farmácia e medicamentos, através de uma aplicação leve que roda no seu navegador.
 
+![screenshot da aplicação](public/screenshot.png)
+
 ##Como executar
 
 1. Faça o download ou clone do repositório através do GitHub.
@@ -12,11 +14,12 @@ O Pharmacy Central System é uma excelente solução para catalogar unidades da 
 ##Tecnologias
 
 - O Pharmacy Central System foi criado a partir do Vite com a biblioteca React usando a linguagem JavaScript.
-- A Estilização foi feita em sua maioria utilizando a biblioteca React-Bootstrap.
-- Todo o sistema de rotas da aplicação foi feito com a biblioteca React-Router-DOM.
+- A estilização foi feita em sua maioria utilizando a biblioteca React-Bootstrap.
+- Todo o sistema de rotas da aplicação foi feito com a biblioteca React Router DOM.
 - A renderização do mapa é feita com a biblioteca React-Leaflet.
 - Os ícones são provenientes do banco de ícones grauitos do Font Awesome.
 - Os dados sobre os CEPs são puxados através da API do ViaCEP e as coordenadas através da API do OpenStreetMap.
+- Todos os dados são armazenados no Local Storage.
 
 ##Sobre o Pharmacy Central System
 
