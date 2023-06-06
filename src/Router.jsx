@@ -8,27 +8,27 @@ import CadastroMedicamentosPage from "./pages/CadastroMedicamentosPage";
 
 export const appRouter = createBrowserRouter([
   {
-    path: "/",
+    path: "/pharmacy-central-system/",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/pharmacy-central-system/",
         element: <LoginPage />,
       },
       {
-        path: "/farmacias",
+        path: "/pharmacy-central-system/farmacias",
         element: <FarmaciasPage />,
       },
       {
-        path: "/cadastro-farmacia",
+        path: "/pharmacy-central-system/cadastro-farmacia",
         element: <CadastroFarmaciasPage />,
       },
       {
-        path: "/medicamentos",
+        path: "/pharmacy-central-system/medicamentos",
         element: <MedicamentosPage />,
       },
       {
-        path: "/cadastro-medicamento",
+        path: "/pharmacy-central-system/cadastro-medicamento",
         element: <CadastroMedicamentosPage />,
       },
     ],

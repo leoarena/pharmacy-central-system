@@ -9,7 +9,7 @@ export default function NavComponent() {
 
   return (
     <Navbar className="skyblue" expand="lg" style={{ height: "45px" }}>
-      {rotaAtual === "/" && (
+      {rotaAtual === "/pharmacy-central-system/" && (
         <>
           <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
           <span>Pharmacy Central System</span>
@@ -19,36 +19,47 @@ export default function NavComponent() {
         </>
       )}
 
-      {rotaAtual !== "/" && (
+      {rotaAtual !== "/pharmacy-central-system/" && (
         <>
-          <Nav.Link href="/farmacias" className="d-flex align-items-center">
+          <Nav.Link
+            href="/pharmacy-central-system/farmacias"
+            className="d-flex align-items-center"
+          >
             <FontAwesomeIcon icon={faLaptopMedical} className="fa-2x mx-2" />
             <span>Pharmacy Central System</span>
           </Nav.Link>
           <Navbar.Collapse>
             <Nav className="ms-auto">
-              {rotaAtual === "/farmacias" ||
-              rotaAtual === "/cadastro-farmacia" ? (
+              {rotaAtual === "/pharmacy-central-system/farmacias" ||
+              rotaAtual === "/pharmacy-central-system/cadastro-farmacia" ? (
                 <>
                   <Button
                     variant=""
-                    href="/farmacias"
+                    href="/pharmacy-central-system/farmacias"
                     className="border-0 fw-bold"
                   >
                     Farmácias
                   </Button>
-                  <Button variant="" href="/medicamentos" className="border-0">
+                  <Button
+                    variant=""
+                    href="/pharmacy-central-system/medicamentos"
+                    className="border-0"
+                  >
                     Medicamentos
                   </Button>
                 </>
               ) : (
                 <>
-                  <Button variant="" href="/farmacias" className="border-0">
+                  <Button
+                    variant=""
+                    href="/pharmacy-central-system/farmacias"
+                    className="border-0"
+                  >
                     Farmácias
                   </Button>
                   <Button
                     variant=""
-                    href="/medicamentos"
+                    href="/pharmacy-central-system/medicamentos"
                     className="border-0 fw-bold"
                   >
                     Medicamentos
@@ -57,7 +68,7 @@ export default function NavComponent() {
               )}
               <Button
                 variant="danger"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/pharmacy-central-system/")}
                 className="me-1 border-dark"
               >
                 Sair
