@@ -27,7 +27,11 @@ export default function MedicamentosPage() {
             ? "Visualizar como card"
             : "Visualizar como tabela"}
         </Button>
-        <Button variant="success" className="m-1" href="/cadastro-medicamento">
+        <Button
+          variant="success"
+          className="m-1"
+          href="/pharmacy-central-system/cadastro-medicamento"
+        >
           Cadastrar novo medicamento
         </Button>
       </div>
