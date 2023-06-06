@@ -2,7 +2,7 @@
   "name": "pharmacy-central-system",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://leoarena.github.io/pharmacy-central-system",
+  "homepage": "https://leoarena.github.io/pharmacy-central-system/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
