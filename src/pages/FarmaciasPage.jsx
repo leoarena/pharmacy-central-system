@@ -27,11 +27,7 @@ export default function FarmaciasPage() {
             ? "Visualizar como tabela"
             : "Visualizar como mapa"}
         </Button>
-        <Button
-          variant="success"
-          className="m-1"
-          href="/pharmacy-central-system/cadastro-farmacia"
-        >
+        <Button variant="success" className="m-1" href="#/cadastro-farmacia">
           Cadastrar nova farmácia
         </Button>
       </div>
