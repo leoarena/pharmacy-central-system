@@ -27,7 +27,7 @@ export default function CadastroMedicamentosForm() {
     try {
       cadastrarMedicamento(dadosNovoMedicamento);
       limparInputs();
-      navigate("/pharmacy-central-system/medicamentos");
+      navigate("/medicamentos");
     } catch (error) {
       console.log("erro ao submeter formulário:", error);
     }
