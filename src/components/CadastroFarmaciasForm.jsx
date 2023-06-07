@@ -45,7 +45,7 @@ export default function CadastroFarmaciasForm() {
     try {
       cadastrarEmpresa(dadosNovaEmpresa);
       limparInputs();
-      navigate("/pharmacy-central-system/farmacias");
+      navigate("/farmacias");
     } catch (error) {
       console.log("erro ao submeter formulário:", error);
     }
