@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import App from "./App";
 import LoginPage from "./pages/LoginPage";
 import FarmaciasPage from "./pages/FarmaciasPage";
@@ -6,29 +6,29 @@ import CadastroFarmaciasPage from "./pages/CadastroFarmaciasPage";
 import MedicamentosPage from "./pages/MedicamentosPage";
 import CadastroMedicamentosPage from "./pages/CadastroMedicamentosPage";
 
-export const appRouter = createBrowserRouter([
+export const router = createHashRouter([
   {
-    path: "/pharmacy-central-system/",
+    path: "/",
     element: <App />,
     children: [
       {
-        path: "/pharmacy-central-system/",
+        path: "/",
         element: <LoginPage />,
       },
       {
-        path: "/pharmacy-central-system/farmacias",
+        path: "/farmacias",
         element: <FarmaciasPage />,
       },
       {
-        path: "/pharmacy-central-system/cadastro-farmacia",
+        path: "/cadastro-farmacia",
         element: <CadastroFarmaciasPage />,
       },
       {
-        path: "/pharmacy-central-system/medicamentos",
+        path: "/medicamentos",
         element: <MedicamentosPage />,
       },
       {
-        path: "/pharmacy-central-system/cadastro-medicamento",
+        path: "/cadastro-medicamento",
         element: <CadastroMedicamentosPage />,
       },
     ],
