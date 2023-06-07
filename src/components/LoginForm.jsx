@@ -5,7 +5,7 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const validarLogin = (e) => {
     e.preventDefault();
-    navigate("/pharmacy-central-system/farmacias");
+    navigate("/farmacias");
   };
 
   return (
@@ -46,16 +46,13 @@ export default function LoginForm() {
           variant="dark"
           type="button"
           className="mx-1 border-0"
-          onClick={() => navigate("/pharmacy-central-system/cadastre-se")}
+          onClick={() => navigate("/cadastre-se")}
         >
           Cadastrar-se
         </Button>
       </div>
       <div className="text-center mt-2">
-        <a
-          href="/pharmacy-central-system/recuperar"
-          className="link-login text-dark"
-        >
+        <a href="#/recuperar" className="link-login text-dark">
           Esqueceu sua senha?
         </a>
       </div>
